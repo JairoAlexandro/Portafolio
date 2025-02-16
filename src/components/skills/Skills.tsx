@@ -252,7 +252,7 @@ const Skills: React.FC = () => {
             ></path>
           </svg>
           <img
-            src="../src/images/nodejs-icon.svg"
+            src="https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1/portafolio/asjulnrsp9cdrqaongcf"
             alt="icono node js"
             className="w-10 h-10 md:w-32 md:h-32 lg:w-32 lg:h-32"
           />
