@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import projectsData from '../../data/projects';
 
 interface Project {
     title: string;
@@ -12,15 +13,7 @@ const Projects: React.FC = () => {
     const [projects, setProjects] = useState<Project[]>([]);
 
     useEffect(() => {
-        fetch('data/projects.json') 
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => setProjects(data))
-            .catch(error => console.error('Error fetching projects:', error));
+        setProjects(projectsData);
     }, []);
 
     return (
