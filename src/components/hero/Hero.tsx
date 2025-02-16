@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
     return (
         <div className="hero text-white flex flex-col items-center justify-center">
             <img
-                src="../src/images/perfil.jpeg"
+                src="images/perfil.jpeg"
                 alt="Profile"
                 className="hero__image rounded-full border-4 border-white w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 lg:w-64 lg:h-64 mb-4 mt-8 shadow-lg"
             />
