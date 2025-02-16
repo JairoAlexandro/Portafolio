@@ -12,7 +12,7 @@ const Projects: React.FC = () => {
     const [projects, setProjects] = useState<Project[]>([]);
 
     useEffect(() => {
-        fetch('../src/data/projects.json') 
+        fetch('/data/projects.json') 
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
