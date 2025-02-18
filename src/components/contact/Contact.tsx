@@ -54,7 +54,7 @@ const ContactForm: React.FC = () => {
       >
         Get in Touch
       </h1>
-      <div className="md:flex-row md:space-x-6 mb-8">
+      <div className="md:flex-row md:space-x-6 mb-8 max-w-3xl mx-auto">
         <div className="flex-1 text-center bg-[#161616] border-[#0f0f0f] border-2 p-6 rounded-lg shadow-md">
           <div className="flex-1 mt-6 md:mt-0">
             <form
@@ -133,7 +133,7 @@ const ContactForm: React.FC = () => {
               </div>
             </form>
           </div>
-          <div className="mt-4 flex justify-center space-x-4">
+          <div className="mt-12 flex justify-center space-x-4">
             <a
               href="https://www.linkedin.com/in/jairo-alexandro"
               target="_blank"

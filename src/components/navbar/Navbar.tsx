@@ -16,16 +16,16 @@ const Navbar: React.FC = () => {
                 </button>
 
                 <div className="hidden md:flex">
-                    <button className="text-white mx-4" onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}>Skills</button>
-                    <button className="text-white mx-4" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>Projects</button>
-                    <button className="text-white mx-4" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Contact</button>
+                    <button className="text-white mx-4 hover:text-gray-400 cursor-pointer" onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}>Skills</button>
+                    <button className="text-white mx-4 hover:text-gray-400 cursor-pointer" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>Projects</button>
+                    <button className="text-white mx-4 hover:text-gray-400 cursor-pointer" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Contact</button>
                 </div>
             </div>
 
             <div className={`md:hidden flex flex-col items-center bg-[#222222] transition-all duration-300 ${menuOpen ? "h-auto opacity-100 py-4" : "h-0 opacity-0 overflow-hidden"}`}>
-                <button className="text-white my-2" onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}>Skills</button>
-                <button className="text-white my-2" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>Proyects</button>
-                <button className="text-white my-2" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Contact</button>
+                <button className="text-white my-2 hover:text-gray-400 cursor-pointer" onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}>Skills</button>
+                <button className="text-white my-2 hover:text-gray-400 cursor-pointer" onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>Proyects</button>
+                <button className="text-white my-2 hover:text-gray-400 cursor-pointer" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Contact</button>
             </div>
         </nav>
     );
