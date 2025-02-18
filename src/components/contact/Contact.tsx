@@ -125,7 +125,7 @@ const ContactForm: React.FC = () => {
               <div className="text-center">
                 <button
                   type="submit"
-                  className="bg-indigo-500 text-white px-6 py-2 rounded-md hover:bg-indigo-600 focus:outline-none"
+                  className="bg-indigo-500 text-white px-6 py-2 rounded-md hover:bg-indigo-600 focus:outline-none cursor-pointer"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
