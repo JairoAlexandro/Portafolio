@@ -8,6 +8,13 @@ interface Project {
 
 const projects: Project[] = [
     {
+        title: "Hotel Johnnie Walker",
+        description: "The Hotel Johnnie Walker application allows managing hotel bookings, including customer search, booking visualization, and stay calculation. It also handles restaurant reservations, integrates with an external API for data, and performs form validation. Best practices are implemented using React.js, with hooks like useState and useEffect, and components are tested with Jest and Vitest.",
+        image: "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1/portafolio/b7lgbxbecatwcn6bgkyz",
+        github: "https://github.com/RubenMRDev/hotelJohnnieWalker",
+        demo: "https://hoteljohnniewalker.vercel.app/"
+    },
+    {
         title: "Chicken Wild Tournament",
         description: "Interactive web application optimized for mobile, tablet, and desktop. Players compete in 1vs1 matches where each one receives an egg, and the winner is determined by the egg's rank.",
         image: "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1/portafolio/fjz3ke1eblvqimjn4iqq",
@@ -27,13 +34,6 @@ const projects: Project[] = [
         image: "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1/portafolio/fvzmcehcu7s7jsjbsq6o",
         github: "https://github.com/JairoAlexandro/ToDoList",
         demo: "https://to-do-list-lake-rho.vercel.app/"
-    },
-    {
-        title: "Hotel Johnnie Walker",
-        description: "The Hotel Johnnie Walker application allows managing hotel bookings, including customer search, booking visualization, and stay calculation. It also handles restaurant reservations, integrates with an external API for data, and performs form validation. Best practices are implemented using React.js, with hooks like useState and useEffect, and components are tested with Jest and Vitest.",
-        image: "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1/portafolio/b7lgbxbecatwcn6bgkyz",
-        github: "https://github.com/RubenMRDev/hotelJohnnieWalker",
-        demo: "#"
     }
 ];
 
