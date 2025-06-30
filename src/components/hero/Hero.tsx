@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
                 BackEnd and FrontEnd, combining strong technical mastery with skills in programming logic and intuitive interface
                 design.
             </p>
-            <a href="/Currículum_Jairo_Saborito.pdf" target="_blank" rel="noopener noreferrer" className="mt-8 px-6 py-2 border-2 border-white text-white rounded-full bg-transparent transition duration-200 ease-in-out transform hover:bg-white hover:text-black hover:scale-105 hover:shadow-lg">
+            <a href="/Jairo_Curriculum.pdf" target="_blank" rel="noopener noreferrer" className="mt-8 px-6 py-2 border-2 border-white text-white rounded-full bg-transparent transition duration-200 ease-in-out transform hover:bg-white hover:text-black hover:scale-105 hover:shadow-lg">
                 Download CV
             </a>
             
