@@ -8,6 +8,13 @@ interface Project {
 
 const projects: Project[] = [
     {
+        title: "PicanCode",
+        description: "PicanCode is a social network for developers where you can share syntax-highlighted code snippets and attach explanatory images. Collaboratively, you can follow other users, comment on their contributions, and “like” your favorite snippets. It also includes an admin panel to moderate content and keep the community safe and well-organized.",
+        image: "https://res.cloudinary.com/dieclsppc/image/upload/v1751441568/Captura_de_pantalla_2025-07-02_093015_hokxjy.png",
+        github: "https://github.com/JairoAlexandro/PicanCode",
+        demo: "https://jairo.slope.es/login"
+    },
+    {
         title: "Hotel Johnnie Walker",
         description: "The Hotel Johnnie Walker application allows managing hotel bookings, including customer search, booking visualization, and stay calculation. It also handles restaurant reservations, integrates with an external API for data, and performs form validation. Best practices are implemented using React.js, with hooks like useState and useEffect, and components are tested with Jest and Vitest.",
         image: "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1/portafolio/b7lgbxbecatwcn6bgkyz",
@@ -20,13 +27,6 @@ const projects: Project[] = [
         image: "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1/portafolio/fjz3ke1eblvqimjn4iqq",
         github: "https://github.com/JairoAlexandro/Chicken-Wild-Tournament",
         demo: "https://cwt-five.vercel.app/"
-    },
-    {
-        title: "YOURGAINZ",
-        description: "Platform with over 200 exercises explained through animations, designed to guide users in their workouts. It includes a ranking system where each user can log and share their personal weightlifting records, promoting motivation and competitiveness.",
-        image: "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1/portafolio/fsjg7dcrmwmwqw067tvm",
-        github: "https://github.com/Nando218/YourGainz",
-        demo: "#"
     },
     {
         title: "To-Do List",
