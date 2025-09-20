@@ -1,39 +1,41 @@
-interface Project {
-    title: string;
-    description: string;
-    image: string;
-    github: string;
-    demo: string;
-}
+import { Project } from '../hooks/useProjects';
 
-const projects: Project[] = [
+const projects: Omit<Project, 'id'>[] = [
     {
         title: "PicanCode",
-        description: "PicanCode is a social network for developers where you can share syntax-highlighted code snippets and attach explanatory images. Collaboratively, you can follow other users, comment on their contributions, and “like” your favorite snippets. It also includes an admin panel to moderate content and keep the community safe and well-organized.",
+        description: "projects.list.picanCode.description",
         image: "https://res.cloudinary.com/dieclsppc/image/upload/v1751441568/Captura_de_pantalla_2025-07-02_093015_hokxjy.png",
         github: "https://github.com/JairoAlexandro/PicanCode",
-        demo: "https://jairo.slope.es/login"
+        demo: "https://jairo.slope.es/login",
+        technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.io"],
+        category: "fullstack",
+        featured: true,
+        githubStars: 15,
+        demoVisits: 1200
     },
     {
         title: "Hotel Johnnie Walker",
-        description: "The Hotel Johnnie Walker application allows managing hotel bookings, including customer search, booking visualization, and stay calculation. It also handles restaurant reservations, integrates with an external API for data, and performs form validation. Best practices are implemented using React.js, with hooks like useState and useEffect, and components are tested with Jest and Vitest.",
+        description: "projects.list.hotelJohnnieWalker.description",
         image: "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1/portafolio/b7lgbxbecatwcn6bgkyz",
         github: "https://github.com/RubenMRDev/hotelJohnnieWalker",
-        demo: "https://hoteljohnniewalker.vercel.app/"
+        demo: "https://hoteljohnniewalker.vercel.app/",
+        technologies: ["React", "JavaScript", "CSS", "HTML", "Jest", "Vitest"],
+        category: "web",
+        featured: false,
+        githubStars: 8,
+        demoVisits: 450
     },
     {
         title: "Chicken Wild Tournament",
-        description: "Interactive web application optimized for mobile, tablet, and desktop. Players compete in 1vs1 matches where each one receives an egg, and the winner is determined by the egg's rank.",
+        description: "projects.list.chickenWildTournament.description",
         image: "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1/portafolio/fjz3ke1eblvqimjn4iqq",
         github: "https://github.com/JairoAlexandro/Chicken-Wild-Tournament",
-        demo: "https://cwt-five.vercel.app/"
-    },
-    {
-        title: "To-Do List",
-        description: "This is a web-based To-Do List application built with HTML, CSS, and JavaScript. It uses Bootstrap for layout and user interface design. The application allows users to add, complete, and delete tasks, as well as filter tasks by status (all, completed, not completed). It also includes both dark mode and light mode.",
-        image: "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1/portafolio/fvzmcehcu7s7jsjbsq6o",
-        github: "https://github.com/JairoAlexandro/ToDoList",
-        demo: "https://to-do-list-lake-rho.vercel.app/"
+        demo: "https://cwt-five.vercel.app/",
+        technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+        category: "web",
+        featured: true,
+        githubStars: 12,
+        demoVisits: 800
     }
 ];
 

@@ -1,0 +1,94 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "skills": "Compétences",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Salut, je suis Jairo Alexandro",
+    "name": "Jairo Alexandro",
+    "title": "Développeur Full Stack",
+    "description": "Développeur passionné créant des expériences web exceptionnelles et des solutions innovantes.",
+    "cta": "Voir mes projets",
+    "download_cv": "Télécharger CV"
+  },
+  "skills": {
+    "title": "Compétences & Expertise",
+    "subtitle": "J'ai développé un ensemble diversifié de compétences grâce à des années d'expérience et d'apprentissage continu. Voici ce que j'apporte à la table.",
+    "categories": {
+      "languages": "Langages de Programmation",
+      "frameworks": "Frameworks & Bibliothèques",
+      "database": "Bases de Données",
+      "tools": "Outils & Contrôle de Version",
+      "design": "Design & Multimédia"
+    },
+    "stats": {
+      "experience": "Années d'Expérience",
+      "projects": "Projets Complétés",
+      "technologies": "Technologies Maîtrisées",
+      "commits": "Commits de Code"
+    }
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "subtitle": "Voici quelques-uns des projets sur lesquels j'ai travaillé. Chacun représente un défi unique et une expérience d'apprentissage dans mon parcours de développeur.",
+    "featured": "En Vedette",
+    "live_demo": "Démo en Direct",
+    "view_code": "Voir le Code",
+    "read_more": "Lire plus",
+    "show_less": "Montrer moins",
+    "no_projects": "Aucun projet disponible pour le moment.",
+    "list": {
+      "picanCode": {
+        "title": "PicanCode",
+        "description": "PicanCode est un réseau social pour développeurs où vous pouvez partager des extraits de code avec coloration syntaxique et joindre des images explicatives. Collaborativement, vous pouvez suivre d'autres utilisateurs, commenter leurs contributions et \"aimer\" vos extraits favoris. Il inclut également un panneau d'administration pour modérer le contenu et maintenir la communauté sûre et bien organisée."
+      },
+      "hotelJohnnieWalker": {
+        "title": "Hôtel Johnnie Walker",
+        "description": "L'application Hôtel Johnnie Walker permet de gérer les réservations d'hôtel, incluant la recherche de clients, la visualisation des réservations et le calcul des séjours. Elle gère également les réservations de restaurant, s'intègre avec une API externe pour les données et effectue la validation de formulaires. Les meilleures pratiques sont implémentées en utilisant React.js, avec des hooks comme useState et useEffect, et les composants sont testés avec Jest et Vitest."
+      },
+      "chickenWildTournament": {
+        "title": "Tournoi Chicken Wild",
+        "description": "Application web interactive optimisée pour mobile, tablette et bureau. Les joueurs s'affrontent dans des matchs 1vs1 où chacun reçoit un œuf, et le gagnant est déterminé par le rang de l'œuf."
+      }
+    }
+  },
+  "contact": {
+    "title": "Entrer en Contact",
+    "subtitle": "Je suis toujours intéressé d'entendre parler de nouvelles opportunités et de projets passionnants. N'hésitez pas à me contacter si vous souhaitez collaborer ou simplement dire bonjour !",
+    "contact_info_title": "Informations de Contact",
+    "follow_me": "Suivez-moi",
+    "form": {
+      "name": "Votre Nom",
+      "email": "Votre Email",
+      "message": "Votre Message",
+      "name_placeholder": "Entrez votre nom",
+      "email_placeholder": "Entrez votre email",
+      "message_placeholder": "Parlez-moi de votre projet ou dites simplement bonjour !",
+      "send": "Envoyer le Message",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès ! Je vous répondrai bientôt.",
+      "error": "Échec de l'envoi du message. Veuillez réessayer plus tard.",
+      "validation": {
+        "name_required": "Le nom est requis",
+        "name_min_length": "Le nom doit contenir au moins 2 caractères",
+        "email_required": "L'email est requis",
+        "email_invalid": "Veuillez entrer une adresse email valide",
+        "message_required": "Le message est requis",
+        "message_min_length": "Le message doit contenir au moins 10 caractères"
+      }
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Téléphone",
+      "location": "Localisation"
+    }
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "built_with": "Construit avec",
+    "by": "par"
+  }
+}

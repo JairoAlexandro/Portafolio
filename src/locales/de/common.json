@@ -1,0 +1,94 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über mich",
+    "skills": "Fähigkeiten",
+    "projects": "Projekte",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "greeting": "Hallo, ich bin Jairo Alexandro",
+    "name": "Jairo Alexandro",
+    "title": "Full Stack Entwickler",
+    "description": "Leidenschaftlicher Entwickler, der außergewöhnliche Web-Erlebnisse und innovative Lösungen schafft.",
+    "cta": "Meine Projekte ansehen",
+    "download_cv": "CV herunterladen"
+  },
+  "skills": {
+    "title": "Fähigkeiten & Expertise",
+    "subtitle": "Ich habe durch jahrelange Erfahrung und kontinuierliches Lernen ein vielfältiges Set von Fähigkeiten entwickelt. Hier ist, was ich an den Tisch bringe.",
+    "categories": {
+      "languages": "Programmiersprachen",
+      "frameworks": "Frameworks & Bibliotheken",
+      "database": "Datenbanken",
+      "tools": "Tools & Versionskontrolle",
+      "design": "Design & Multimedia"
+    },
+    "stats": {
+      "experience": "Jahre Erfahrung",
+      "projects": "Abgeschlossene Projekte",
+      "technologies": "Beherrschte Technologien",
+      "commits": "Code Commits"
+    }
+  },
+  "projects": {
+    "title": "Meine Projekte",
+    "subtitle": "Hier sind einige der Projekte, an denen ich gearbeitet habe. Jedes stellt eine einzigartige Herausforderung und Lernerfahrung in meiner Reise als Entwickler dar.",
+    "featured": "Hervorgehoben",
+    "live_demo": "Live Demo",
+    "view_code": "Code ansehen",
+    "read_more": "Mehr lesen",
+    "show_less": "Weniger zeigen",
+    "no_projects": "Derzeit sind keine Projekte verfügbar.",
+    "list": {
+      "picanCode": {
+        "title": "PicanCode",
+        "description": "PicanCode ist ein soziales Netzwerk für Entwickler, wo Sie syntaxhervorgehobene Code-Snippets teilen und erklärende Bilder anhängen können. Kollaborativ können Sie anderen Benutzern folgen, ihre Beiträge kommentieren und Ihre Lieblings-Snippets \"liken\". Es enthält auch ein Admin-Panel zur Moderation von Inhalten und zur Sicherung und Organisation der Community."
+      },
+      "hotelJohnnieWalker": {
+        "title": "Hotel Johnnie Walker",
+        "description": "Die Hotel Johnnie Walker Anwendung ermöglicht die Verwaltung von Hotelbuchungen, einschließlich Kundensuche, Buchungsvisualisierung und Aufenthaltsberechnung. Sie verwaltet auch Restaurantreservierungen, integriert sich mit einer externen API für Daten und führt Formularvalidierung durch. Best Practices werden mit React.js implementiert, mit Hooks wie useState und useEffect, und Komponenten werden mit Jest und Vitest getestet."
+      },
+      "chickenWildTournament": {
+        "title": "Chicken Wild Turnier",
+        "description": "Interaktive Web-Anwendung optimiert für Mobilgeräte, Tablets und Desktop. Spieler treten in 1vs1-Matches an, bei denen jeder ein Ei erhält, und der Gewinner wird durch den Rang des Eies bestimmt."
+      }
+    }
+  },
+  "contact": {
+    "title": "Kontakt aufnehmen",
+    "subtitle": "Ich bin immer interessiert daran, von neuen Möglichkeiten und aufregenden Projekten zu hören. Zögern Sie nicht, mich zu kontaktieren, wenn Sie zusammenarbeiten möchten oder einfach nur Hallo sagen wollen!",
+    "contact_info_title": "Kontaktinformationen",
+    "follow_me": "Folgen Sie mir",
+    "form": {
+      "name": "Ihr Name",
+      "email": "Ihre E-Mail",
+      "message": "Ihre Nachricht",
+      "name_placeholder": "Geben Sie Ihren Namen ein",
+      "email_placeholder": "Geben Sie Ihre E-Mail ein",
+      "message_placeholder": "Erzählen Sie mir von Ihrem Projekt oder sagen Sie einfach Hallo!",
+      "send": "Nachricht senden",
+      "sending": "Wird gesendet...",
+      "success": "Nachricht erfolgreich gesendet! Ich werde Ihnen bald antworten.",
+      "error": "Fehler beim Senden der Nachricht. Bitte versuchen Sie es später erneut.",
+      "validation": {
+        "name_required": "Name ist erforderlich",
+        "name_min_length": "Name muss mindestens 2 Zeichen haben",
+        "email_required": "E-Mail ist erforderlich",
+        "email_invalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+        "message_required": "Nachricht ist erforderlich",
+        "message_min_length": "Nachricht muss mindestens 10 Zeichen haben"
+      }
+    },
+    "info": {
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "location": "Standort"
+    }
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten.",
+    "built_with": "Erstellt mit",
+    "by": "von"
+  }
+}

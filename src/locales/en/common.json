@@ -1,0 +1,94 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm Jairo Alexandro",
+    "name": "Jairo Alexandro",
+    "title": "Full Stack Developer",
+    "description": "Passionate developer creating exceptional web experiences and innovative solutions.",
+    "cta": "View my projects",
+    "download_cv": "Download CV"
+  },
+  "skills": {
+    "title": "Skills & Expertise",
+    "subtitle": "I've developed a diverse skill set through years of experience and continuous learning. Here's what I bring to the table.",
+    "categories": {
+      "languages": "Programming Languages",
+      "frameworks": "Frameworks & Libraries",
+      "database": "Databases",
+      "tools": "Tools & Version Control",
+      "design": "Design & Multimedia"
+    },
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects Completed",
+      "technologies": "Technologies Mastered",
+      "commits": "Code Commits"
+    }
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Here are some of the projects I've worked on. Each one represents a unique challenge and learning experience in my journey as a developer.",
+    "featured": "Featured",
+    "live_demo": "Live Demo",
+    "view_code": "View Code",
+    "read_more": "Read More",
+    "show_less": "Show Less",
+    "no_projects": "No projects available at the moment.",
+    "list": {
+      "picanCode": {
+        "title": "PicanCode",
+        "description": "PicanCode is a social network for developers where you can share syntax-highlighted code snippets and attach explanatory images. Collaboratively, you can follow other users, comment on their contributions, and \"like\" your favorite snippets. It also includes an admin panel to moderate content and keep the community safe and well-organized."
+      },
+      "hotelJohnnieWalker": {
+        "title": "Hotel Johnnie Walker",
+        "description": "The Hotel Johnnie Walker application allows managing hotel bookings, including customer search, booking visualization, and stay calculation. It also handles restaurant reservations, integrates with an external API for data, and performs form validation. Best practices are implemented using React.js, with hooks like useState and useEffect, and components are tested with Jest and Vitest."
+      },
+      "chickenWildTournament": {
+        "title": "Chicken Wild Tournament",
+        "description": "Interactive web application optimized for mobile, tablet, and desktop. Players compete in 1vs1 matches where each one receives an egg, and the winner is determined by the egg's rank."
+      }
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "I'm always interested in hearing about new opportunities and exciting projects. Feel free to reach out if you'd like to collaborate or just want to say hello!",
+    "contact_info_title": "Contact Information",
+    "follow_me": "Follow Me",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "message": "Your Message",
+      "name_placeholder": "Enter your name",
+      "email_placeholder": "Enter your email",
+      "message_placeholder": "Tell me about your project or just say hello!",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! I'll get back to you soon.",
+      "error": "Failed to send message. Please try again later.",
+      "validation": {
+        "name_required": "Name is required",
+        "name_min_length": "Name must be at least 2 characters",
+        "email_required": "Email is required",
+        "email_invalid": "Please enter a valid email address",
+        "message_required": "Message is required",
+        "message_min_length": "Message must be at least 10 characters"
+      }
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "built_with": "Built with",
+    "by": "by"
+  }
+}
