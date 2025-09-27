@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
              style={{ borderImage: "linear-gradient(to right, transparent, white, transparent) 1" }}>
             <div className="container mx-auto flex justify-between items-center px-4 py-4">
                 <Link to="/" className="text-white text-2xl font-bold hover:text-blue-400 transition-colors">
-                    Jairo Alexandro
+                    J. Alexandro
                 </Link>
                 
                 <div className="flex items-center space-x-4">
