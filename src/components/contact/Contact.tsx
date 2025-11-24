@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Send, CheckCircle, AlertCircle, Mail, Phone, MapPin } from "lucide-react";
 import emailjs from "emailjs-com";
 import { useTranslation } from "../../hooks/useTranslation";
+import { CONTACT_INFO, SOCIAL_LINKS } from "../../constants";
 
 interface FormData {
   name: string;
@@ -70,7 +71,7 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -80,22 +81,22 @@ const ContactForm: React.FC = () => {
 
     try {
       await emailjs.sendForm(
-        "service_1g6gu1d",
-        "template_564m19z",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         e.target as HTMLFormElement,
-        "7NfAzuETjAYo0YmXA"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       setSubmitStatus('success');
       setFormData({ name: "", email: "", message: "" });
       setErrors({});
-      
+
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch (error) {
       console.error("Failed to send message:", error);
       setSubmitStatus('error');
-      
+
       // Reset error message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } finally {
@@ -124,22 +125,25 @@ const ContactForm: React.FC = () => {
     {
       icon: Mail,
       title: t('contact.info.email'),
-      value: "jairosaborio31@gmail.com",
-      href: "mailto:jairosaborio31@gmail.com"
+      value: CONTACT_INFO.email,
+      href: `mailto:${CONTACT_INFO.email}`
     },
     {
       icon: Phone,
       title: t('contact.info.phone'),
-      value: "+34 722 148 938",
-      href: "tel:+34722148938"
+      value: CONTACT_INFO.phone,
+      href: `tel:${CONTACT_INFO.phoneClean}`
     },
     {
       icon: MapPin,
       title: t('contact.info.location'),
-      value: "Málaga, Spain",
+      value: CONTACT_INFO.location,
       href: "#"
     }
   ];
+
+  // Filter out email from social links for the "Follow me" section as it's already in contact info
+  const socialLinksDisplay = SOCIAL_LINKS.filter(link => link.id !== 'email');
 
   return (
     <div className="w-full py-20 px-4" id="contact">
@@ -190,30 +194,20 @@ const ContactForm: React.FC = () => {
               <div className="mt-8 pt-8 border-t border-slate-700">
                 <h4 className="text-lg font-semibold text-white mb-4">{t('contact.follow_me')}</h4>
                 <div className="flex gap-4">
-                  <motion.a
-                    href="https://github.com/JairoAlexandro"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg transition-colors"
-                    whileHover={{ y: -2, scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0c-6.63 0-12 5.37-12 12 0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23.95-.26 1.97-.39 2.98-.39 1.01 0 2.03.13 2.98.39 2.3-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.62-2.8 5.65-5.47 5.95.43.37.81 1.1.81 2.22 0 1.6-.01 2.88-.01 3.27 0 .32.22.69.82.58 4.77-1.59 8.21-6.09 8.21-11.39 0-6.63-5.37-12-12-12z" />
-                    </svg>
-                  </motion.a>
-                  <motion.a
-                    href="https://www.linkedin.com/in/jairo-alexandro"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg transition-colors"
-                    whileHover={{ y: -2, scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.88v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.6v5.58z" />
-                    </svg>
-                  </motion.a>
+                  {socialLinksDisplay.map((social) => (
+                    <motion.a
+                      key={social.id}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg transition-colors"
+                      whileHover={{ y: -2, scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      aria-label={social.label}
+                    >
+                      <social.icon className="w-6 h-6 text-white" />
+                    </motion.a>
+                  ))}
                 </div>
               </div>
             </div>
@@ -256,9 +250,8 @@ const ContactForm: React.FC = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${
-                      errors.name ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:border-transparent'
-                    }`}
+                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${errors.name ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:border-transparent'
+                      }`}
                     placeholder={t('contact.form.name_placeholder')}
                   />
                   {errors.name && (
@@ -283,9 +276,8 @@ const ContactForm: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${
-                      errors.email ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:border-transparent'
-                    }`}
+                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${errors.email ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:border-transparent'
+                      }`}
                     placeholder={t('contact.form.email_placeholder')}
                   />
                   {errors.email && (
@@ -310,9 +302,8 @@ const ContactForm: React.FC = () => {
                     rows={6}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none ${
-                      errors.message ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:border-transparent'
-                    }`}
+                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none ${errors.message ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:border-transparent'
+                      }`}
                     placeholder={t('contact.form.message_placeholder')}
                   />
                   {errors.message && (
