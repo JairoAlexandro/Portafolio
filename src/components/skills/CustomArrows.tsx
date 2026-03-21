@@ -9,7 +9,11 @@ type ArrowProps = {
   onClick?: () => void;
 };
 
-const CustomPrevArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => {
+const CustomPrevArrow: React.FC<ArrowProps> = ({
+  className,
+  style,
+  onClick,
+}) => {
   const [showArrows, setShowArrows] = useState(window.innerWidth >= 768);
 
   useEffect(() => {
@@ -23,17 +27,17 @@ const CustomPrevArrow: React.FC<ArrowProps> = ({ className, style, onClick }) =>
   return showArrows ? (
     <div
       className={className}
-      style={{ 
-        ...style, 
-        display: "flex", 
-        justifyContent: "center", 
-        alignItems: "center", 
-        width: "40px", 
-        height: "40px", 
-        background: "rgba(0, 0, 0, 0.5)", 
-        borderRadius: "50%", 
+      style={{
+        ...style,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "40px",
+        height: "40px",
+        background: "rgba(0, 0, 0, 0.5)",
+        borderRadius: "50%",
         cursor: "pointer",
-        color: "white"
+        color: "white",
       }}
       onClick={onClick}
     >
@@ -42,7 +46,11 @@ const CustomPrevArrow: React.FC<ArrowProps> = ({ className, style, onClick }) =>
   ) : null;
 };
 
-const CustomNextArrow: React.FC<ArrowProps> = ({ className, style, onClick }) => {
+const CustomNextArrow: React.FC<ArrowProps> = ({
+  className,
+  style,
+  onClick,
+}) => {
   const [showArrows, setShowArrows] = useState(window.innerWidth >= 768);
 
   useEffect(() => {
@@ -56,17 +64,17 @@ const CustomNextArrow: React.FC<ArrowProps> = ({ className, style, onClick }) =>
   return showArrows ? (
     <div
       className={className}
-      style={{ 
-        ...style, 
-        display: "flex", 
-        justifyContent: "center", 
-        alignItems: "center", 
-        width: "40px", 
-        height: "40px", 
-        background: "rgba(0, 0, 0, 0.5)", 
-        borderRadius: "50%", 
+      style={{
+        ...style,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "40px",
+        height: "40px",
+        background: "rgba(0, 0, 0, 0.5)",
+        borderRadius: "50%",
         cursor: "pointer",
-        color: "white"
+        color: "white",
       }}
       onClick={onClick}
     >

@@ -1,35 +1,35 @@
-const canvas = document.createElement('canvas');
+const canvas = document.createElement("canvas");
 document.body.appendChild(canvas);
-canvas.style.position = 'fixed';
-canvas.style.top = '0';
-canvas.style.left = '0';
-canvas.style.width = '100%';
-canvas.style.height = '100%';
-canvas.style.zIndex = '-1';
+canvas.style.position = "fixed";
+canvas.style.top = "0";
+canvas.style.left = "0";
+canvas.style.width = "100%";
+canvas.style.height = "100%";
+canvas.style.zIndex = "-1";
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext("2d");
 let circles = [];
 const mouse = { x: null, y: null };
 
-window.addEventListener('mousemove', (e) => {
+window.addEventListener("mousemove", (e) => {
   mouse.x = e.x;
   mouse.y = e.y;
 });
 
-window.addEventListener('touchmove', (e) => {
+window.addEventListener("touchmove", (e) => {
   const touch = e.touches[0];
   mouse.x = touch.clientX;
   mouse.y = touch.clientY;
 });
 
-window.addEventListener('touchend', () => {
+window.addEventListener("touchend", () => {
   mouse.x = null;
   mouse.y = null;
 });
 
-window.addEventListener('resize', () => {
+window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
@@ -44,17 +44,17 @@ class Circle {
     this.radius = radius;
   }
 
-draw() {
+  draw() {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = 'grey';
-    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    ctx.fillStyle = "grey";
+    ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
     ctx.shadowBlur = 8;
     ctx.shadowOffsetX = 0;
     ctx.shadowOffsetY = 0;
     ctx.fill();
     ctx.shadowBlur = 0; // Reset shadowBlur to avoid affecting other drawings
-}
+  }
 
   update() {
     if (mouse.x !== null && mouse.y !== null) {
@@ -71,8 +71,10 @@ draw() {
       this.dy *= 0.98;
     }
 
-    if (this.x + this.radius > canvas.width || this.x - this.radius < 0) this.dx = -this.dx;
-    if (this.y + this.radius > canvas.height || this.y - this.radius < 0) this.dy = -this.dy;
+    if (this.x + this.radius > canvas.width || this.x - this.radius < 0)
+      this.dx = -this.dx;
+    if (this.y + this.radius > canvas.height || this.y - this.radius < 0)
+      this.dy = -this.dy;
 
     this.x += this.dx;
     this.y += this.dy;
@@ -96,7 +98,7 @@ function init() {
 function animate() {
   requestAnimationFrame(animate);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  circles.forEach(circle => circle.update());
+  circles.forEach((circle) => circle.update());
 }
 
 init();

@@ -29,14 +29,17 @@ const App: React.FC = () => {
               <Navbar />
               <main>
                 <Routes>
-                  <Route path="/" element={
-                    <>
-                      <Hero />
-                      <Skills />
-                      <Projects />
-                      <Contact />
-                    </>
-                  } />
+                  <Route
+                    path="/"
+                    element={
+                      <>
+                        <Hero />
+                        <Skills />
+                        <Projects />
+                        <Contact />
+                      </>
+                    }
+                  />
                   <Route path="/skills" element={<Skills />} />
                   <Route path="/projects" element={<Projects />} />
                   <Route path="/contact" element={<Contact />} />

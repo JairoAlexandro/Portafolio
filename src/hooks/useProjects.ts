@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import projectsData from '../data/projects';
+import { useMemo } from "react";
+import projectsData from "../data/projects";
 
 export interface Project {
   id: string;
@@ -9,7 +9,7 @@ export interface Project {
   demo: string;
   github: string;
   technologies: string[];
-  category: 'web' | 'mobile' | 'backend' | 'fullstack';
+  category: "web" | "mobile" | "backend" | "fullstack";
   featured: boolean;
   githubStars?: number;
   demoVisits?: number;
@@ -21,7 +21,7 @@ export const useProjects = () => {
       ...project,
       id: `project-${index}`,
       technologies: project.technologies || [],
-      category: project.category || 'web',
+      category: project.category || "web",
       featured: project.featured || false,
       githubStars: project.githubStars || 0,
       demoVisits: project.demoVisits || 0,

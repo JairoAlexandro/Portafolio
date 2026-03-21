@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle, AlertCircle, Mail, Phone, MapPin } from "lucide-react";
+import {
+  Send,
+  CheckCircle,
+  AlertCircle,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 import emailjs from "emailjs-com";
 import { useTranslation } from "../../hooks/useTranslation";
 import { CONTACT_INFO, SOCIAL_LINKS } from "../../constants";
@@ -27,27 +34,29 @@ const ContactForm: React.FC = () => {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = t('contact.form.validation.name_required');
+      newErrors.name = t("contact.form.validation.name_required");
     } else if (formData.name.trim().length < 2) {
-      newErrors.name = t('contact.form.validation.name_min_length');
+      newErrors.name = t("contact.form.validation.name_min_length");
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = t('contact.form.validation.email_required');
+      newErrors.email = t("contact.form.validation.email_required");
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = t('contact.form.validation.email_invalid');
+      newErrors.email = t("contact.form.validation.email_invalid");
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = t('contact.form.validation.message_required');
+      newErrors.message = t("contact.form.validation.message_required");
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = t('contact.form.validation.message_min_length');
+      newErrors.message = t("contact.form.validation.message_min_length");
     }
 
     setErrors(newErrors);
@@ -55,7 +64,7 @@ const ContactForm: React.FC = () => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -65,7 +74,7 @@ const ContactForm: React.FC = () => {
 
     // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
-      setErrors(prev => ({ ...prev, [name]: undefined }));
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
 
@@ -77,28 +86,28 @@ const ContactForm: React.FC = () => {
     }
 
     setIsSubmitting(true);
-    setSubmitStatus('idle');
+    setSubmitStatus("idle");
 
     try {
       await emailjs.sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         e.target as HTMLFormElement,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
 
-      setSubmitStatus('success');
+      setSubmitStatus("success");
       setFormData({ name: "", email: "", message: "" });
       setErrors({});
 
       // Reset success message after 5 seconds
-      setTimeout(() => setSubmitStatus('idle'), 5000);
+      setTimeout(() => setSubmitStatus("idle"), 5000);
     } catch (error) {
       console.error("Failed to send message:", error);
-      setSubmitStatus('error');
+      setSubmitStatus("error");
 
       // Reset error message after 5 seconds
-      setTimeout(() => setSubmitStatus('idle'), 5000);
+      setTimeout(() => setSubmitStatus("idle"), 5000);
     } finally {
       setIsSubmitting(false);
     }
@@ -111,39 +120,39 @@ const ContactForm: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   const contactInfo = [
     {
       icon: Mail,
-      title: t('contact.info.email'),
+      title: t("contact.info.email"),
       value: CONTACT_INFO.email,
-      href: `mailto:${CONTACT_INFO.email}`
+      href: `mailto:${CONTACT_INFO.email}`,
     },
     {
       icon: Phone,
-      title: t('contact.info.phone'),
+      title: t("contact.info.phone"),
       value: CONTACT_INFO.phone,
-      href: `tel:${CONTACT_INFO.phoneClean}`
+      href: `tel:${CONTACT_INFO.phoneClean}`,
     },
     {
       icon: MapPin,
-      title: t('contact.info.location'),
+      title: t("contact.info.location"),
       value: CONTACT_INFO.location,
-      href: "#"
-    }
+      href: "#",
+    },
   ];
 
   // Filter out email from social links for the "Follow me" section as it's already in contact info
-  const socialLinksDisplay = SOCIAL_LINKS.filter(link => link.id !== 'email');
+  const socialLinksDisplay = SOCIAL_LINKS.filter((link) => link.id !== "email");
 
   return (
     <div className="w-full py-20 px-4" id="contact">
@@ -156,10 +165,10 @@ const ContactForm: React.FC = () => {
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            {t('contact.title')}
+            {t("contact.title")}
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            {t('contact.subtitle')}
+            {t("contact.subtitle")}
           </p>
         </motion.div>
 
@@ -167,7 +176,9 @@ const ContactForm: React.FC = () => {
           {/* Información de contacto */}
           <motion.div variants={itemVariants} className="lg:col-span-1">
             <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 h-fit">
-              <h3 className="text-2xl font-bold text-white mb-8">{t('contact.contact_info_title')}</h3>
+              <h3 className="text-2xl font-bold text-white mb-8">
+                {t("contact.contact_info_title")}
+              </h3>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <motion.a
@@ -192,7 +203,9 @@ const ContactForm: React.FC = () => {
 
               {/* Redes sociales */}
               <div className="mt-8 pt-8 border-t border-slate-700">
-                <h4 className="text-lg font-semibold text-white mb-4">{t('contact.follow_me')}</h4>
+                <h4 className="text-lg font-semibold text-white mb-4">
+                  {t("contact.follow_me")}
+                </h4>
                 <div className="flex gap-4">
                   {socialLinksDisplay.map((social) => (
                     <motion.a
@@ -217,32 +230,39 @@ const ContactForm: React.FC = () => {
           <motion.div variants={itemVariants} className="lg:col-span-2">
             <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8">
               {/* Mensajes de estado */}
-              {submitStatus === 'success' && (
+              {submitStatus === "success" && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-6 p-4 bg-green-600/20 border border-green-500/30 rounded-lg flex items-center gap-3"
                 >
                   <CheckCircle className="text-green-400" size={20} />
-                  <span className="text-green-400">{t('contact.form.success')}</span>
+                  <span className="text-green-400">
+                    {t("contact.form.success")}
+                  </span>
                 </motion.div>
               )}
 
-              {submitStatus === 'error' && (
+              {submitStatus === "error" && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-6 p-4 bg-red-600/20 border border-red-500/30 rounded-lg flex items-center gap-3"
                 >
                   <AlertCircle className="text-red-400" size={20} />
-                  <span className="text-red-400">{t('contact.form.error')}</span>
+                  <span className="text-red-400">
+                    {t("contact.form.error")}
+                  </span>
                 </motion.div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-lg font-semibold text-white mb-3">
-                    {t('contact.form.name')}
+                  <label
+                    htmlFor="name"
+                    className="block text-lg font-semibold text-white mb-3"
+                  >
+                    {t("contact.form.name")}
                   </label>
                   <input
                     type="text"
@@ -250,9 +270,12 @@ const ContactForm: React.FC = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${errors.name ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:border-transparent'
-                      }`}
-                    placeholder={t('contact.form.name_placeholder')}
+                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${
+                      errors.name
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-slate-600 focus:border-transparent"
+                    }`}
+                    placeholder={t("contact.form.name_placeholder")}
                   />
                   {errors.name && (
                     <motion.p
@@ -267,8 +290,11 @@ const ContactForm: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-lg font-semibold text-white mb-3">
-                    {t('contact.form.email')}
+                  <label
+                    htmlFor="email"
+                    className="block text-lg font-semibold text-white mb-3"
+                  >
+                    {t("contact.form.email")}
                   </label>
                   <input
                     type="email"
@@ -276,9 +302,12 @@ const ContactForm: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${errors.email ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:border-transparent'
-                      }`}
-                    placeholder={t('contact.form.email_placeholder')}
+                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${
+                      errors.email
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-slate-600 focus:border-transparent"
+                    }`}
+                    placeholder={t("contact.form.email_placeholder")}
                   />
                   {errors.email && (
                     <motion.p
@@ -293,8 +322,11 @@ const ContactForm: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-lg font-semibold text-white mb-3">
-                    {t('contact.form.message')}
+                  <label
+                    htmlFor="message"
+                    className="block text-lg font-semibold text-white mb-3"
+                  >
+                    {t("contact.form.message")}
                   </label>
                   <textarea
                     id="message"
@@ -302,9 +334,12 @@ const ContactForm: React.FC = () => {
                     rows={6}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none ${errors.message ? 'border-red-500 focus:ring-red-500' : 'border-slate-600 focus:border-transparent'
-                      }`}
-                    placeholder={t('contact.form.message_placeholder')}
+                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none ${
+                      errors.message
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-slate-600 focus:border-transparent"
+                    }`}
+                    placeholder={t("contact.form.message_placeholder")}
                   />
                   {errors.message && (
                     <motion.p
@@ -328,12 +363,12 @@ const ContactForm: React.FC = () => {
                   {isSubmitting ? (
                     <>
                       <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                      {t('contact.form.sending')}
+                      {t("contact.form.sending")}
                     </>
                   ) : (
                     <>
                       <Send size={20} />
-                      {t('contact.form.send')}
+                      {t("contact.form.send")}
                     </>
                   )}
                 </motion.button>

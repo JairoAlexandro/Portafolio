@@ -1,5 +1,5 @@
-import React from 'react';
-import { useTranslation } from '../hooks/useTranslation';
+import React from "react";
+import { useTranslation } from "../hooks/useTranslation";
 
 // Ejemplo de cómo usar las traducciones en un componente
 const ExampleComponent: React.FC = () => {
@@ -8,35 +8,35 @@ const ExampleComponent: React.FC = () => {
   return (
     <div>
       {/* Traducciones simples */}
-      <h1>{t('hero.title')}</h1>
-      <p>{t('hero.description')}</p>
-      
+      <h1>{t("hero.title")}</h1>
+      <p>{t("hero.description")}</p>
+
       {/* Traducciones anidadas */}
       <nav>
-        <a href="#home">{t('nav.home')}</a>
-        <a href="#skills">{t('nav.skills')}</a>
-        <a href="#projects">{t('nav.projects')}</a>
-        <a href="#contact">{t('nav.contact')}</a>
+        <a href="#home">{t("nav.home")}</a>
+        <a href="#skills">{t("nav.skills")}</a>
+        <a href="#projects">{t("nav.projects")}</a>
+        <a href="#contact">{t("nav.contact")}</a>
       </nav>
-      
+
       {/* Traducciones con estructura compleja */}
       <div>
-        <h2>{t('skills.title')}</h2>
-        <p>{t('skills.subtitle')}</p>
-        
+        <h2>{t("skills.title")}</h2>
+        <p>{t("skills.subtitle")}</p>
+
         <div>
-          <h3>{t('skills.categories.languages')}</h3>
-          <h3>{t('skills.categories.frameworks')}</h3>
-          <h3>{t('skills.categories.database')}</h3>
+          <h3>{t("skills.categories.languages")}</h3>
+          <h3>{t("skills.categories.frameworks")}</h3>
+          <h3>{t("skills.categories.database")}</h3>
         </div>
       </div>
-      
+
       {/* Estadísticas */}
       <div>
-        <span>{t('skills.stats.experience')}</span>
-        <span>{t('skills.stats.projects')}</span>
-        <span>{t('skills.stats.technologies')}</span>
-        <span>{t('skills.stats.commits')}</span>
+        <span>{t("skills.stats.experience")}</span>
+        <span>{t("skills.stats.projects")}</span>
+        <span>{t("skills.stats.technologies")}</span>
+        <span>{t("skills.stats.commits")}</span>
       </div>
     </div>
   );

@@ -1,42 +1,50 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Heart, ArrowUp, Github, Linkedin, Mail, ExternalLink, MapPin } from "lucide-react";
+import {
+  Heart,
+  ArrowUp,
+  Github,
+  Linkedin,
+  Mail,
+  ExternalLink,
+  MapPin,
+} from "lucide-react";
 import { useTranslation } from "../../hooks/useTranslation";
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     {
-      name: 'GitHub',
+      name: "GitHub",
       icon: Github,
-      href: 'https://github.com/JairoAlexandro',
-      color: 'hover:text-gray-400'
+      href: "https://github.com/JairoAlexandro",
+      color: "hover:text-gray-400",
     },
     {
-      name: 'LinkedIn',
+      name: "LinkedIn",
       icon: Linkedin,
-      href: 'https://www.linkedin.com/in/jairo-alexandro',
-      color: 'hover:text-blue-400'
+      href: "https://www.linkedin.com/in/jairo-alexandro",
+      color: "hover:text-blue-400",
     },
     {
-      name: 'Email',
+      name: "Email",
       icon: Mail,
-      href: 'mailto:jairosaborio31@gmail.com',
-      color: 'hover:text-red-400'
-    }
+      href: "mailto:jairosaborio31@gmail.com",
+      color: "hover:text-red-400",
+    },
   ];
 
   const quickLinks = [
-    { name: t('nav.skills'), href: '#skills' },
-    { name: t('nav.projects'), href: '#projects' },
-    { name: t('nav.contact'), href: '#contact' },
-    { name: t('hero.download_cv'), href: '/Jairo_Curriculum.pdf' }
+    { name: t("nav.skills"), href: "#skills" },
+    { name: t("nav.projects"), href: "#projects" },
+    { name: t("nav.contact"), href: "#contact" },
+    { name: t("hero.download_cv"), href: "/Jairo_Curriculum.pdf?v=2" },
   ];
 
   const containerVariants = {
@@ -46,14 +54,14 @@ const Footer: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
@@ -68,9 +76,11 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Información principal */}
           <motion.div variants={itemVariants} className="md:col-span-2">
-            <h3 className="text-2xl font-bold text-white mb-4">Jairo Alexandro</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Jairo Alexandro
+            </h3>
             <p className="text-gray-300 mb-6 max-w-md">
-              {t('hero.description')}
+              {t("hero.description")}
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -92,7 +102,9 @@ const Footer: React.FC = () => {
 
           {/* Enlaces rápidos */}
           <motion.div variants={itemVariants}>
-            <h4 className="text-lg font-semibold text-white mb-4">Enlaces Rápidos</h4>
+            <h4 className="text-lg font-semibold text-white mb-4">
+              Enlaces Rápidos
+            </h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -101,8 +113,11 @@ const Footer: React.FC = () => {
                     className="text-gray-300 hover:text-blue-400 transition-colors flex items-center gap-2 group"
                   >
                     {link.name}
-                    {link.href.startsWith('http') && (
-                      <ExternalLink size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                    {link.href.startsWith("http") && (
+                      <ExternalLink
+                        size={14}
+                        className="opacity-0 group-hover:opacity-100 transition-opacity"
+                      />
                     )}
                   </a>
                 </li>
@@ -112,7 +127,9 @@ const Footer: React.FC = () => {
 
           {/* Información de contacto */}
           <motion.div variants={itemVariants}>
-            <h4 className="text-lg font-semibold text-white mb-4">{t('contact.contact_info_title')}</h4>
+            <h4 className="text-lg font-semibold text-white mb-4">
+              {t("contact.contact_info_title")}
+            </h4>
             <div className="space-y-3 text-gray-300">
               <p className="flex items-center gap-2">
                 <Mail size={16} className="text-blue-400" />
@@ -129,14 +146,20 @@ const Footer: React.FC = () => {
         {/* Línea divisoria */}
         <div className="border-t border-slate-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <motion.p variants={itemVariants} className="text-gray-400 text-center md:text-left">
-              © {currentYear} Jairo Alexandro. {t('footer.rights')}
+            <motion.p
+              variants={itemVariants}
+              className="text-gray-400 text-center md:text-left"
+            >
+              © {currentYear} Jairo Alexandro. {t("footer.rights")}
             </motion.p>
-            
-            <motion.div variants={itemVariants} className="flex items-center gap-2 text-gray-400">
-              <span>{t('footer.built_with')}</span>
+
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-2 text-gray-400"
+            >
+              <span>{t("footer.built_with")}</span>
               <Heart size={16} className="text-red-500 animate-pulse" />
-              <span>{t('footer.by')} React & TypeScript</span>
+              <span>{t("footer.by")} React & TypeScript</span>
             </motion.div>
           </div>
         </div>
