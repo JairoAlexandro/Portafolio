@@ -1,7 +1,16 @@
 import React from "react";
-import { MessagesSquare, CreditCard, DatabaseZap, TrendingUp } from "lucide-react";
+import {
+  MessagesSquare,
+  CreditCard,
+  DatabaseZap,
+  TrendingUp,
+  ArrowUpRight,
+} from "lucide-react";
 import { useTranslation } from "../../hooks/useTranslation";
+import { JOBS } from "../../data/experience";
 import Section, { Reveal } from "../ui/Section";
+
+const RENTERUS_URL = JOBS.find((job) => job.id === "renterus")?.url;
 
 const HIGHLIGHTS = [
   { id: "chat", icon: MessagesSquare },
@@ -26,9 +35,14 @@ const Now: React.FC = () => {
           <div className="relative">
             <div className="flex items-center justify-between gap-4">
               <div>
-                <p className="text-xl font-semibold text-white">
+                <a
+                  href={RENTERUS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl font-semibold text-white transition-colors hover:text-accent"
+                >
                   Renterus Software
-                </p>
+                </a>
                 <p className="text-sm text-ink-400">Full Stack Developer</p>
               </div>
               <span className="chip !border-accent/30 !bg-accent/10 font-mono !text-xs !text-accent">
@@ -39,6 +53,15 @@ const Now: React.FC = () => {
               <p>{t("now.p1")}</p>
               <p>{t("now.p2")}</p>
             </div>
+            <a
+              href={RENTERUS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost mt-8"
+            >
+              {t("now.visit")}
+              <ArrowUpRight size={15} />
+            </a>
           </div>
         </Reveal>
 

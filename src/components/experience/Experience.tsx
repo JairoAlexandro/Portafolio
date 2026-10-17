@@ -1,5 +1,5 @@
 import React from "react";
-import { Briefcase, GraduationCap } from "lucide-react";
+import { ArrowUpRight, Briefcase, GraduationCap } from "lucide-react";
 import { useTranslation } from "../../hooks/useTranslation";
 import { EDUCATION, JOBS } from "../../data/experience";
 import Section, { Reveal } from "../ui/Section";
@@ -39,9 +39,24 @@ const Experience: React.FC = () => {
                 <Reveal delay={i * 0.1} className="card p-6 sm:p-7">
                   <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
                     <div>
-                      <p className="text-lg font-semibold text-white">
-                        {job.company}
-                      </p>
+                      {job.url ? (
+                        <a
+                          href={job.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/link inline-flex items-center gap-1 text-lg font-semibold text-white transition-colors hover:text-accent"
+                        >
+                          {job.company}
+                          <ArrowUpRight
+                            size={16}
+                            className="text-ink-500 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 group-hover/link:text-accent"
+                          />
+                        </a>
+                      ) : (
+                        <p className="text-lg font-semibold text-white">
+                          {job.company}
+                        </p>
+                      )}
                       <p className="text-sm text-ink-400">
                         {t(`experience.jobs.${job.id}.role`)}
                       </p>

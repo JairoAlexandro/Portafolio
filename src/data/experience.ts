@@ -5,6 +5,7 @@ export interface Job {
   /** Clave dentro de experience.jobs */
   id: "renterus" | "greenslope";
   company: string;
+  url?: string;
   current?: boolean;
   stack: string[];
 }
@@ -18,12 +19,14 @@ export const JOBS: Job[] = [
   {
     id: "renterus",
     company: "Renterus Software",
+    url: "https://renterus.com/",
     current: true,
     stack: ["WebSockets", "Redsys", "SQL", "phpMyAdmin"],
   },
   {
     id: "greenslope",
     company: "GreenSlope",
+    url: "https://www.nextcaddy.com/",
     stack: ["Symfony", "PHP", "React", "TypeScript", "Grafana"],
   },
 ];

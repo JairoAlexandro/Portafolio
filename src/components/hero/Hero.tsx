@@ -120,17 +120,19 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative mx-auto w-56 sm:w-64 md:w-72"
         >
-          <div className="absolute -inset-6 rounded-[2.5rem] bg-accent/10 blur-3xl" />
-          <div className="relative rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/10 to-transparent p-1.5">
-            <img
-              src={PROFILE_IMAGE}
-              alt="Jairo Alexandro"
-              width={288}
-              height={288}
-              className="aspect-square w-full rounded-[1.6rem] object-cover"
-            />
+          <div className="absolute -inset-6 rounded-full bg-accent/15 blur-3xl" />
+          <div className="relative rounded-full border border-white/10 bg-gradient-to-b from-accent/40 via-white/10 to-transparent p-1.5">
+            <div className="overflow-hidden rounded-full bg-ink-200">
+              <img
+                src={PROFILE_IMAGE}
+                alt="Jairo Alexandro"
+                width={288}
+                height={288}
+                className="aspect-square w-full scale-[1.03] object-cover"
+              />
+            </div>
           </div>
-          <div className="card absolute -bottom-4 -left-4 flex items-center gap-2 !rounded-full !bg-ink-900/90 px-3.5 py-2 text-sm text-ink-200">
+          <div className="card absolute -bottom-2 -left-2 flex items-center gap-2 !rounded-full !bg-ink-900/90 px-3.5 py-2 text-sm text-ink-200">
             <MapPin size={14} className="text-accent" />
             {t("hero.location")}
           </div>
