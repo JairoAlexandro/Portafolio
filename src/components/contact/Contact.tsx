@@ -1,37 +1,28 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   Send,
-  CheckCircle,
+  CheckCircle2,
   AlertCircle,
   Mail,
   Phone,
   MapPin,
+  Loader2,
 } from "lucide-react";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import { useTranslation } from "../../hooks/useTranslation";
 import { CONTACT_INFO, SOCIAL_LINKS } from "../../constants";
+import Section, { Reveal } from "../ui/Section";
 
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
+type Field = "name" | "email" | "message";
+type FormData = Record<Field, string>;
+type FormErrors = Partial<Record<Field, string>>;
 
-interface FormErrors {
-  name?: string;
-  email?: string;
-  message?: string;
-}
+const EMPTY_FORM: FormData = { name: "", email: "", message: "" };
 
-const ContactForm: React.FC = () => {
+const Contact: React.FC = () => {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    message: "",
-  });
-
+  const [formData, setFormData] = useState<FormData>(EMPTY_FORM);
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
@@ -66,24 +57,16 @@ const ContactForm: React.FC = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-
-    // Clear error when user starts typing
-    if (errors[name as keyof FormErrors]) {
+    const name = e.target.name as Field;
+    setFormData((prev) => ({ ...prev, [name]: e.target.value }));
+    if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     setIsSubmitting(true);
     setSubmitStatus("idle");
@@ -92,42 +75,19 @@ const ContactForm: React.FC = () => {
       await emailjs.sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        e.target as HTMLFormElement,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        e.currentTarget,
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY },
       );
-
       setSubmitStatus("success");
-      setFormData({ name: "", email: "", message: "" });
+      setFormData(EMPTY_FORM);
       setErrors({});
-
-      // Reset success message after 5 seconds
-      setTimeout(() => setSubmitStatus("idle"), 5000);
     } catch (error) {
       console.error("Failed to send message:", error);
       setSubmitStatus("error");
-
-      // Reset error message after 5 seconds
-      setTimeout(() => setSubmitStatus("idle"), 5000);
     } finally {
       setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus("idle"), 6000);
     }
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   const contactInfo = [
@@ -146,239 +106,177 @@ const ContactForm: React.FC = () => {
     {
       icon: MapPin,
       title: t("contact.info.location"),
-      value: CONTACT_INFO.location,
-      href: "#",
+      value: t("hero.location"),
     },
   ];
 
-  // Filter out email from social links for the "Follow me" section as it's already in contact info
-  const socialLinksDisplay = SOCIAL_LINKS.filter((link) => link.id !== "email");
+  const inputClass = (field: Field) =>
+    `w-full rounded-xl border bg-white/[0.03] px-4 py-3 text-white placeholder:text-ink-500 transition-colors focus:bg-white/[0.05] focus:outline-none focus:ring-2 ${
+      errors[field]
+        ? "border-red-500/60 focus:ring-red-500/40"
+        : "border-white/10 focus:border-accent/50 focus:ring-accent/20"
+    }`;
+
+  const renderField = (field: Field, multiline = false) => (
+    <div className={multiline ? "sm:col-span-2" : undefined}>
+      <label
+        htmlFor={field}
+        className="mb-2 block text-sm font-medium text-ink-200"
+      >
+        {t(`contact.form.${field}`)}
+      </label>
+      {multiline ? (
+        <textarea
+          id={field}
+          name={field}
+          rows={5}
+          value={formData[field]}
+          onChange={handleChange}
+          placeholder={t(`contact.form.${field}_placeholder`)}
+          aria-invalid={!!errors[field]}
+          aria-describedby={errors[field] ? `${field}-error` : undefined}
+          className={`${inputClass(field)} resize-none`}
+        />
+      ) : (
+        <input
+          id={field}
+          name={field}
+          type={field === "email" ? "email" : "text"}
+          autoComplete={field}
+          value={formData[field]}
+          onChange={handleChange}
+          placeholder={t(`contact.form.${field}_placeholder`)}
+          aria-invalid={!!errors[field]}
+          aria-describedby={errors[field] ? `${field}-error` : undefined}
+          className={inputClass(field)}
+        />
+      )}
+      {errors[field] && (
+        <p
+          id={`${field}-error`}
+          className="mt-2 flex items-center gap-1.5 text-sm text-red-400"
+        >
+          <AlertCircle size={14} />
+          {errors[field]}
+        </p>
+      )}
+    </div>
+  );
 
   return (
-    <div className="w-full py-20 px-4" id="contact">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="max-w-6xl mx-auto"
-      >
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            {t("contact.title")}
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            {t("contact.subtitle")}
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Información de contacto */}
-          <motion.div variants={itemVariants} className="lg:col-span-1">
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 h-fit">
-              <h3 className="text-2xl font-bold text-white mb-8">
-                {t("contact.contact_info_title")}
-              </h3>
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                  <motion.a
-                    key={info.title}
-                    href={info.href}
-                    className="flex items-center gap-4 p-4 rounded-lg hover:bg-slate-700/50 transition-colors group"
-                    whileHover={{ x: 5 }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <div className="p-3 bg-blue-600/20 rounded-lg group-hover:bg-blue-600/30 transition-colors">
-                      <info.icon size={24} className="text-blue-400" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-white">{info.title}</h4>
-                      <p className="text-gray-300">{info.value}</p>
-                    </div>
-                  </motion.a>
-                ))}
-              </div>
-
-              {/* Redes sociales */}
-              <div className="mt-8 pt-8 border-t border-slate-700">
-                <h4 className="text-lg font-semibold text-white mb-4">
-                  {t("contact.follow_me")}
-                </h4>
-                <div className="flex gap-4">
-                  {socialLinksDisplay.map((social) => (
-                    <motion.a
-                      key={social.id}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-slate-700/50 hover:bg-slate-600/50 rounded-lg transition-colors"
-                      whileHover={{ y: -2, scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      aria-label={social.label}
-                    >
-                      <social.icon className="w-6 h-6 text-white" />
-                    </motion.a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Formulario */}
-          <motion.div variants={itemVariants} className="lg:col-span-2">
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8">
-              {/* Mensajes de estado */}
-              {submitStatus === "success" && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-green-600/20 border border-green-500/30 rounded-lg flex items-center gap-3"
-                >
-                  <CheckCircle className="text-green-400" size={20} />
-                  <span className="text-green-400">
-                    {t("contact.form.success")}
+    <Section
+      id="contact"
+      index="05"
+      label={t("contact.label")}
+      title={t("contact.title")}
+      subtitle={t("contact.subtitle")}
+    >
+      <div className="grid gap-6 lg:grid-cols-[1fr_1.6fr]">
+        <Reveal className="card flex flex-col p-6 sm:p-8">
+          <ul className="space-y-2">
+            {contactInfo.map((info) => {
+              const content = (
+                <>
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.04] text-accent">
+                    <info.icon size={17} />
                   </span>
-                </motion.div>
-              )}
-
-              {submitStatus === "error" && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-red-600/20 border border-red-500/30 rounded-lg flex items-center gap-3"
-                >
-                  <AlertCircle className="text-red-400" size={20} />
-                  <span className="text-red-400">
-                    {t("contact.form.error")}
+                  <span className="min-w-0">
+                    <span className="block text-xs text-ink-500">
+                      {info.title}
+                    </span>
+                    <span className="block truncate text-ink-100">
+                      {info.value}
+                    </span>
                   </span>
-                </motion.div>
-              )}
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-lg font-semibold text-white mb-3"
-                  >
-                    {t("contact.form.name")}
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${
-                      errors.name
-                        ? "border-red-500 focus:ring-red-500"
-                        : "border-slate-600 focus:border-transparent"
-                    }`}
-                    placeholder={t("contact.form.name_placeholder")}
-                  />
-                  {errors.name && (
-                    <motion.p
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="mt-2 text-red-400 text-sm flex items-center gap-2"
+                </>
+              );
+              return (
+                <li key={info.title}>
+                  {info.href ? (
+                    <a
+                      href={info.href}
+                      className="flex items-center gap-4 rounded-xl p-2 transition-colors hover:bg-white/[0.04]"
                     >
-                      <AlertCircle size={16} />
-                      {errors.name}
-                    </motion.p>
-                  )}
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-lg font-semibold text-white mb-3"
-                  >
-                    {t("contact.form.email")}
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${
-                      errors.email
-                        ? "border-red-500 focus:ring-red-500"
-                        : "border-slate-600 focus:border-transparent"
-                    }`}
-                    placeholder={t("contact.form.email_placeholder")}
-                  />
-                  {errors.email && (
-                    <motion.p
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="mt-2 text-red-400 text-sm flex items-center gap-2"
-                    >
-                      <AlertCircle size={16} />
-                      {errors.email}
-                    </motion.p>
-                  )}
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-lg font-semibold text-white mb-3"
-                  >
-                    {t("contact.form.message")}
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 bg-slate-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none ${
-                      errors.message
-                        ? "border-red-500 focus:ring-red-500"
-                        : "border-slate-600 focus:border-transparent"
-                    }`}
-                    placeholder={t("contact.form.message_placeholder")}
-                  />
-                  {errors.message && (
-                    <motion.p
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="mt-2 text-red-400 text-sm flex items-center gap-2"
-                    >
-                      <AlertCircle size={16} />
-                      {errors.message}
-                    </motion.p>
-                  )}
-                </div>
-
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-3 disabled:cursor-not-allowed disabled:opacity-70"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                      {t("contact.form.sending")}
-                    </>
+                      {content}
+                    </a>
                   ) : (
-                    <>
-                      <Send size={20} />
-                      {t("contact.form.send")}
-                    </>
+                    <div className="flex items-center gap-4 p-2">{content}</div>
                   )}
-                </motion.button>
-              </form>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="mt-auto flex gap-2 border-t border-white/[0.07] pt-6">
+            {SOCIAL_LINKS.filter((link) => link.id !== "email").map(
+              (social) => (
+                <a
+                  key={social.id}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost"
+                >
+                  <social.icon size={16} />
+                  {social.label}
+                </a>
+              ),
+            )}
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1} className="card p-6 sm:p-8">
+          <form
+            onSubmit={handleSubmit}
+            noValidate
+            className="grid gap-5 sm:grid-cols-2"
+          >
+            {renderField("name")}
+            {renderField("email")}
+            {renderField("message", true)}
+
+            <div className="flex flex-col gap-4 sm:col-span-2 sm:flex-row sm:items-center">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="btn-primary !px-6 !py-3 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {isSubmitting ? (
+                  <Loader2 size={16} className="animate-spin" />
+                ) : (
+                  <Send size={16} />
+                )}
+                {t(isSubmitting ? "contact.form.sending" : "contact.form.send")}
+              </button>
+
+              <AnimatePresence>
+                {submitStatus !== "idle" && (
+                  <motion.p
+                    role="status"
+                    initial={{ opacity: 0, x: -6 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0 }}
+                    className={`flex items-center gap-2 text-sm ${
+                      submitStatus === "success"
+                        ? "text-accent"
+                        : "text-red-400"
+                    }`}
+                  >
+                    {submitStatus === "success" ? (
+                      <CheckCircle2 size={16} />
+                    ) : (
+                      <AlertCircle size={16} />
+                    )}
+                    {t(`contact.form.${submitStatus}`)}
+                  </motion.p>
+                )}
+              </AnimatePresence>
             </div>
-          </motion.div>
-        </div>
-      </motion.div>
-    </div>
+          </form>
+        </Reveal>
+      </div>
+    </Section>
   );
 };
 
-export default ContactForm;
+export default Contact;

@@ -1,81 +1,154 @@
 {
   "nav": {
-    "home": "Home",
-    "about": "About",
-    "skills": "Skills",
+    "now": "Now",
+    "experience": "Experience",
+    "skills": "Stack",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "menu": "Open menu",
+    "language": "Change language"
   },
   "hero": {
-    "greeting": "Hi, I'm J. Alexandro",
-    "name": "J. Alexandro",
+    "status": "Currently at Renterus Software",
+    "greeting": "Hi, I'm",
+    "name": "Jairo Alexandro",
     "title": "Full Stack Developer",
-    "description": "Passionate developer creating exceptional web experiences and innovative solutions.",
-    "cta": "View my projects",
-    "download_cv": "Download CV"
+    "description": "I build fast, scalable web applications, from the back-end to the interface. My background in 3D animation makes me especially careful about user experience and visual detail.",
+    "cta": "View projects",
+    "download_cv": "Download CV",
+    "location": "Málaga, Spain",
+    "stats": {
+      "experience": "years of experience",
+      "companies": "companies",
+      "projects": "featured projects",
+      "technologies": "technologies"
+    }
+  },
+  "now": {
+    "label": "Now",
+    "title": "Growing every day at Renterus",
+    "p1": "Since July 2025 I've been working as a Full Stack Developer at Renterus Software. It's an environment where I keep expanding my knowledge every day, on both the front-end and the back-end, tackling real product problems.",
+    "p2": "Beyond my assigned tasks, I get involved in spotting areas for improvement and in proposing and implementing solutions that make the product more solid and the team's work more efficient.",
+    "since": "Since Jul 2025",
+    "highlights": {
+      "chat": {
+        "title": "Real-time internal chat",
+        "description": "Contributing to an internal chat system built on WebSockets."
+      },
+      "payments": {
+        "title": "Secure payments",
+        "description": "Integration of secure payment methods with the Redsys gateway."
+      },
+      "data": {
+        "title": "Data logic",
+        "description": "Designing and implementing SQL database logic for new features."
+      },
+      "improvements": {
+        "title": "Continuous improvement",
+        "description": "Optimising existing features and helping deployments run smoothly."
+      }
+    }
+  },
+  "experience": {
+    "label": "Journey",
+    "title": "Experience & education",
+    "work": "Work experience",
+    "studies": "Education",
+    "present": "Present",
+    "jobs": {
+      "renterus": {
+        "role": "Full Stack Developer",
+        "period": "Jul 2025 — Present",
+        "bullets": [
+          "Building new features and user interfaces across web applications.",
+          "Contributing to an internal chat system using WebSockets.",
+          "Integrating secure payments with Redsys.",
+          "Designing SQL database logic (phpMyAdmin) to support new features.",
+          "Optimising existing features and ensuring smooth deployments."
+        ]
+      },
+      "greenslope": {
+        "role": "Full Stack Developer",
+        "period": "Mar 2025 — Jun 2025",
+        "bullets": [
+          "RESTful APIs with Symfony and plain PHP, following a clean architecture.",
+          "Reusable React components and front-end optimisation to improve load times.",
+          "Real-time Grafana dashboard (active users, error rates, forecasts) to detect incidents faster.",
+          "Worked with designers and back-end colleagues applying CSS, JavaScript and TypeScript best practices."
+        ]
+      }
+    },
+    "education": {
+      "daw": {
+        "title": "Higher Degree in Web Application Development (DAW)",
+        "school": "CEI School of Design and Marketing, Seville",
+        "period": "2023 — 2025",
+        "description": "Modern front-end and back-end (React, Angular, Symfony, Laravel, Node.js), responsive design and accessibility."
+      },
+      "animation": {
+        "title": "Higher Degree in 3D Animation, Games and Interactive Environments",
+        "school": "IES Ángel de Saavedra, Córdoba",
+        "period": "2020 — 2022",
+        "description": "Animation principles applied to UI/UX: timing, easing and motion design for micro-interactions."
+      }
+    }
   },
   "skills": {
-    "title": "Skills & Expertise",
-    "subtitle": "I've developed a diverse skill set through years of experience and continuous learning. Here's what I bring to the table.",
+    "label": "Stack",
+    "title": "Technologies I work with",
+    "subtitle": "The tools I use day to day, from the database to design.",
     "categories": {
-      "languages": "Programming Languages",
-      "frameworks": "Frameworks & Libraries",
+      "languages": "Languages",
+      "frameworks": "Frameworks & libraries",
       "database": "Databases",
-      "tools": "Tools & Version Control",
-      "design": "Design & Multimedia"
+      "tools": "Tools & DevOps",
+      "design": "Design & multimedia",
+      "methods": "Methodology & languages"
     },
-    "stats": {
-      "experience": "Years Experience",
-      "projects": "Projects Completed",
-      "technologies": "Technologies Mastered",
-      "commits": "Code Commits"
+    "items": {
+      "spanish": "Spanish (native)",
+      "english": "English"
     }
   },
   "projects": {
-    "title": "My Projects",
-    "subtitle": "Here are some of the projects I've worked on. Each one represents a unique challenge and learning experience in my journey as a developer.",
+    "label": "Projects",
+    "title": "Selected work",
+    "subtitle": "Personal and academic projects where I've put what I learn into practice.",
     "featured": "Featured",
-    "live_demo": "Live Demo",
-    "view_code": "View Code",
-    "read_more": "Read More",
-    "show_less": "Show Less",
-    "no_projects": "No projects available at the moment.",
+    "live_demo": "Demo",
+    "view_code": "Code",
     "list": {
       "picanCode": {
-        "title": "PicanCode",
-        "description": "PicanCode is a social network for developers where you can share syntax-highlighted code snippets and attach explanatory images. Collaboratively, you can follow other users, comment on their contributions, and \"like\" your favorite snippets. It also includes an admin panel to moderate content and keep the community safe and well-organized."
+        "description": "A social network for developers to share code snippets with syntax highlighting and explanatory images. Users can follow each other, comment and like, and an admin panel keeps the content moderated."
       },
       "hotelJohnnieWalker": {
-        "title": "Hotel Johnnie Walker",
-        "description": "The Hotel Johnnie Walker application allows managing hotel bookings, including customer search, booking visualization, and stay calculation. It also handles restaurant reservations, integrates with an external API for data, and performs form validation. Best practices are implemented using React.js, with hooks like useState and useEffect, and components are tested with Jest and Vitest."
+        "description": "Hotel and restaurant booking management: customer search, stay calculation, external API integration and form validation. Built with React and hooks, and tested with Jest and Vitest."
       },
       "chickenWildTournament": {
-        "title": "Chicken Wild Tournament",
-        "description": "Interactive web application optimized for mobile, tablet, and desktop. Players compete in 1vs1 matches where each one receives an egg, and the winner is determined by the egg's rank."
+        "description": "An interactive, responsive web game where two players compete 1v1: each gets an egg and whoever gets the highest-ranked one wins."
       }
     }
   },
   "contact": {
-    "title": "Get in Touch",
-    "subtitle": "I'm always interested in hearing about new opportunities and exciting projects. Feel free to reach out if you'd like to collaborate or just want to say hello!",
-    "contact_info_title": "Contact Information",
-    "follow_me": "Follow Me",
+    "label": "Contact",
+    "title": "Let's talk",
+    "subtitle": "I'm open to new opportunities and projects. Drop me a line and I'll get back to you as soon as possible.",
     "form": {
-      "name": "Your Name",
-      "email": "Your Email",
-      "message": "Your Message",
-      "name_placeholder": "Enter your name",
-      "email_placeholder": "Enter your email",
-      "message_placeholder": "Tell me about your project or just say hello!",
-      "send": "Send Message",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "name_placeholder": "Your name",
+      "email_placeholder": "you@email.com",
+      "message_placeholder": "Tell me about your project or just say hi",
+      "send": "Send message",
       "sending": "Sending...",
-      "success": "Message sent successfully! I'll get back to you soon.",
-      "error": "Failed to send message. Please try again later.",
+      "success": "Message sent! I'll get back to you soon.",
+      "error": "The message couldn't be sent. Please try again later or email me directly.",
       "validation": {
         "name_required": "Name is required",
         "name_min_length": "Name must be at least 2 characters",
         "email_required": "Email is required",
-        "email_invalid": "Please enter a valid email address",
+        "email_invalid": "Please enter a valid email",
         "message_required": "Message is required",
         "message_min_length": "Message must be at least 10 characters"
       }
@@ -88,7 +161,7 @@
   },
   "footer": {
     "rights": "All rights reserved.",
-    "built_with": "Built with",
-    "by": "by"
+    "built_with": "Built with React, TypeScript and Tailwind CSS",
+    "back_to_top": "Back to top"
   }
 }

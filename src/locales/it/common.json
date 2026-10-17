@@ -1,83 +1,156 @@
 {
   "nav": {
-    "home": "Home",
-    "about": "Chi sono",
-    "skills": "Competenze",
+    "now": "Ora",
+    "experience": "Esperienza",
+    "skills": "Stack",
     "projects": "Progetti",
-    "contact": "Contatto"
+    "contact": "Contatti",
+    "menu": "Apri menu",
+    "language": "Cambia lingua"
   },
   "hero": {
-    "greeting": "Ciao, sono J. Alexandro",
-    "name": "J. Alexandro",
-    "title": "Sviluppatore Full Stack",
-    "description": "Sviluppatore appassionato che crea esperienze web eccezionali e soluzioni innovative.",
-    "cta": "Vedi i miei progetti",
-    "download_cv": "Scarica CV"
+    "status": "Attualmente in Renterus Software",
+    "greeting": "Ciao, sono",
+    "name": "Jairo Alexandro",
+    "title": "Full Stack Developer",
+    "description": "Realizzo applicazioni web veloci e scalabili, dal back-end all'interfaccia. La mia formazione in animazione 3D mi porta a curare in modo particolare l'esperienza utente e il dettaglio visivo.",
+    "cta": "Vedi progetti",
+    "download_cv": "Scarica CV",
+    "location": "Malaga, Spagna",
+    "stats": {
+      "experience": "anni di esperienza",
+      "companies": "aziende",
+      "projects": "progetti in evidenza",
+      "technologies": "tecnologie"
+    }
+  },
+  "now": {
+    "label": "Ora",
+    "title": "Crescere ogni giorno in Renterus",
+    "p1": "Da luglio 2025 lavoro come Full Stack Developer in Renterus Software. È un ambiente in cui continuo ad ampliare le mie conoscenze ogni giorno, sia nel front-end che nel back-end, affrontando problemi reali di prodotto.",
+    "p2": "Oltre ai compiti assegnati, mi impegno a individuare aree di miglioramento e a proporre e implementare soluzioni che rendono il prodotto più solido e il lavoro del team più efficiente.",
+    "since": "Da lug. 2025",
+    "highlights": {
+      "chat": {
+        "title": "Chat interna in tempo reale",
+        "description": "Partecipo allo sviluppo di un sistema di chat interna basato su WebSockets."
+      },
+      "payments": {
+        "title": "Pagamenti sicuri",
+        "description": "Integrazione di metodi di pagamento sicuri con il gateway Redsys."
+      },
+      "data": {
+        "title": "Logica dei dati",
+        "description": "Progettazione e implementazione di logica di database in SQL per nuove funzionalità."
+      },
+      "improvements": {
+        "title": "Miglioramento continuo",
+        "description": "Ottimizzo le funzionalità esistenti e contribuisco a rilasci senza intoppi."
+      }
+    }
+  },
+  "experience": {
+    "label": "Percorso",
+    "title": "Esperienza e formazione",
+    "work": "Esperienza lavorativa",
+    "studies": "Formazione",
+    "present": "Oggi",
+    "jobs": {
+      "renterus": {
+        "role": "Full Stack Developer",
+        "period": "Lug. 2025 — Oggi",
+        "bullets": [
+          "Sviluppo di nuove funzionalità e interfacce in applicazioni web.",
+          "Partecipazione a un sistema di chat interna con WebSockets.",
+          "Integrazione di pagamenti sicuri con Redsys.",
+          "Progettazione di logica di database SQL (phpMyAdmin) per nuove funzionalità.",
+          "Ottimizzazione delle funzionalità esistenti e rilasci senza attriti."
+        ]
+      },
+      "greenslope": {
+        "role": "Full Stack Developer",
+        "period": "Mar. 2025 — Giu. 2025",
+        "bullets": [
+          "API RESTful con Symfony e PHP puro, seguendo un'architettura pulita.",
+          "Componenti React riutilizzabili e ottimizzazione del front-end per migliorare i tempi di caricamento.",
+          "Dashboard in tempo reale con Grafana (utenti attivi, errori, previsioni) per individuare prima gli incidenti.",
+          "Collaborazione con design e back-end applicando buone pratiche di CSS, JavaScript e TypeScript."
+        ]
+      }
+    },
+    "education": {
+      "daw": {
+        "title": "Diploma Superiore in Sviluppo di Applicazioni Web (DAW)",
+        "school": "CEI Scuola di Design e Marketing, Siviglia",
+        "period": "2023 — 2025",
+        "description": "Front-end e back-end moderni (React, Angular, Symfony, Laravel, Node.js), design responsive e accessibilità."
+      },
+      "animation": {
+        "title": "Diploma Superiore in Animazione 3D, Giochi e Ambienti Interattivi",
+        "school": "IES Ángel de Saavedra, Cordova",
+        "period": "2020 — 2022",
+        "description": "Principi di animazione applicati alla UI/UX: timing, easing e motion design per le micro-interazioni."
+      }
+    }
   },
   "skills": {
-    "title": "Competenze & Esperienza",
-    "subtitle": "Ho sviluppato un set diversificato di competenze attraverso anni di esperienza e apprendimento continuo. Ecco cosa posso offrire.",
+    "label": "Stack",
+    "title": "Tecnologie con cui lavoro",
+    "subtitle": "Gli strumenti che uso ogni giorno, dal database al design.",
     "categories": {
-      "languages": "Linguaggi di Programmazione",
-      "frameworks": "Framework & Librerie",
+      "languages": "Linguaggi",
+      "frameworks": "Framework e librerie",
       "database": "Database",
-      "tools": "Strumenti & Controllo Versione",
-      "design": "Design & Multimedia"
+      "tools": "Strumenti e DevOps",
+      "design": "Design e multimedia",
+      "methods": "Metodologia e lingue"
     },
-    "stats": {
-      "experience": "Anni di Esperienza",
-      "projects": "Progetti Completati",
-      "technologies": "Tecnologie Padroneggiate",
-      "commits": "Commit di Codice"
+    "items": {
+      "spanish": "Spagnolo (madrelingua)",
+      "english": "Inglese"
     }
   },
   "projects": {
-    "title": "I Miei Progetti",
-    "subtitle": "Ecco alcuni dei progetti su cui ho lavorato. Ognuno rappresenta una sfida unica e un'esperienza di apprendimento nel mio percorso come sviluppatore.",
-    "featured": "In Evidenza",
-    "live_demo": "Demo Live",
-    "view_code": "Vedi Codice",
-    "read_more": "Leggi di più",
-    "show_less": "Mostra meno",
-    "no_projects": "Nessun progetto disponibile al momento.",
+    "label": "Progetti",
+    "title": "Lavori selezionati",
+    "subtitle": "Progetti personali e accademici in cui ho messo in pratica ciò che imparo.",
+    "featured": "In evidenza",
+    "live_demo": "Demo",
+    "view_code": "Codice",
     "list": {
       "picanCode": {
-        "title": "PicanCode",
-        "description": "PicanCode è un social network per sviluppatori dove puoi condividere frammenti di codice con evidenziazione della sintassi e allegare immagini esplicative. In modo collaborativo, puoi seguire altri utenti, commentare i loro contributi e \"mettere like\" ai tuoi frammenti preferiti. Include anche un pannello di amministrazione per moderare i contenuti e mantenere la comunità sicura e ben organizzata."
+        "description": "Social network per sviluppatori in cui condividere snippet di codice con evidenziazione della sintassi e immagini esplicative. Si possono seguire altri utenti, commentare e mettere like, e un pannello di amministrazione permette di moderare i contenuti."
       },
       "hotelJohnnieWalker": {
-        "title": "Hotel Johnnie Walker",
-        "description": "L'applicazione Hotel Johnnie Walker permette di gestire le prenotazioni dell'hotel, inclusa la ricerca clienti, la visualizzazione delle prenotazioni e il calcolo dei soggiorni. Gestisce anche le prenotazioni del ristorante, si integra con un'API esterna per i dati ed esegue la validazione dei moduli. Le migliori pratiche sono implementate usando React.js, con hook come useState e useEffect, e i componenti sono testati con Jest e Vitest."
+        "description": "Gestione delle prenotazioni di hotel e ristorante: ricerca clienti, calcolo dei soggiorni, integrazione con un'API esterna e validazione dei moduli. Realizzata con React e hooks, testata con Jest e Vitest."
       },
       "chickenWildTournament": {
-        "title": "Torneo Chicken Wild",
-        "description": "Applicazione web interattiva ottimizzata per mobile, tablet e desktop. I giocatori competono in partite 1vs1 dove ognuno riceve un uovo, e il vincitore è determinato dal rango dell'uovo."
+        "description": "Gioco web interattivo e responsive in cui due giocatori si sfidano 1v1: ognuno riceve un uovo e vince chi ottiene quello di rango più alto."
       }
     }
   },
   "contact": {
-    "title": "Mettiti in Contatto",
-    "subtitle": "Sono sempre interessato a sentire parlare di nuove opportunità e progetti entusiasmanti. Non esitare a contattarmi se vuoi collaborare o semplicemente dire ciao!",
-    "contact_info_title": "Informazioni di Contatto",
-    "follow_me": "Seguimi",
+    "label": "Contatti",
+    "title": "Parliamone",
+    "subtitle": "Sono aperto a nuove opportunità e progetti. Scrivimi e ti risponderò il prima possibile.",
     "form": {
-      "name": "Il Tuo Nome",
-      "email": "La Tua Email",
-      "message": "Il Tuo Messaggio",
-      "name_placeholder": "Inserisci il tuo nome",
-      "email_placeholder": "Inserisci la tua email",
-      "message_placeholder": "Parlami del tuo progetto o semplicemente dì ciao!",
-      "send": "Invia Messaggio",
+      "name": "Nome",
+      "email": "Email",
+      "message": "Messaggio",
+      "name_placeholder": "Il tuo nome",
+      "email_placeholder": "tu@email.com",
+      "message_placeholder": "Raccontami del tuo progetto o semplicemente salutami",
+      "send": "Invia messaggio",
       "sending": "Invio in corso...",
-      "success": "Messaggio inviato con successo! Ti risponderò presto.",
-      "error": "Errore nell'invio del messaggio. Riprova più tardi.",
+      "success": "Messaggio inviato! Ti risponderò presto.",
+      "error": "Impossibile inviare il messaggio. Riprova più tardi o scrivimi via email.",
       "validation": {
-        "name_required": "Il nome è richiesto",
-        "name_min_length": "Il nome deve avere almeno 2 caratteri",
-        "email_required": "L'email è richiesta",
-        "email_invalid": "Inserisci un indirizzo email valido",
-        "message_required": "Il messaggio è richiesto",
-        "message_min_length": "Il messaggio deve avere almeno 10 caratteri"
+        "name_required": "Il nome è obbligatorio",
+        "name_min_length": "Il nome deve contenere almeno 2 caratteri",
+        "email_required": "L'email è obbligatoria",
+        "email_invalid": "Inserisci un'email valida",
+        "message_required": "Il messaggio è obbligatorio",
+        "message_min_length": "Il messaggio deve contenere almeno 10 caratteri"
       }
     },
     "info": {
@@ -88,7 +161,7 @@
   },
   "footer": {
     "rights": "Tutti i diritti riservati.",
-    "built_with": "Costruito con",
-    "by": "da"
+    "built_with": "Realizzato con React, TypeScript e Tailwind CSS",
+    "back_to_top": "Torna su"
   }
 }

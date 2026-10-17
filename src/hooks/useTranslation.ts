@@ -8,11 +8,5 @@ export const useTranslation = () => {
     throw new Error("useTranslation must be used within a TranslationProvider");
   }
 
-  const { t, language, setLanguage } = context;
-
-  return {
-    t,
-    language,
-    setLanguage,
-  };
+  return context;
 };

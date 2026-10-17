@@ -1,55 +1,41 @@
-import React, { Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AppProvider } from "./context/AppContext";
+import React from "react";
+import { MotionConfig } from "framer-motion";
 import { TranslationProvider } from "./context/TranslationContext";
-import "./App.css";
-
-// Lazy loading de componentes
-const Navbar = React.lazy(() => import("./components/navbar/Navbar"));
-const Hero = React.lazy(() => import("./components/hero/Hero"));
-const Skills = React.lazy(() => import("./components/skills/Skills"));
-const Projects = React.lazy(() => import("./components/projects/Projects"));
-const Contact = React.lazy(() => import("./components/contact/Contact"));
-const Footer = React.lazy(() => import("./components/footer/Footer"));
-
-// Componente de carga
-const LoadingSpinner = () => (
-  <div className="flex items-center justify-center min-h-screen">
-    <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-500"></div>
-  </div>
-);
+import Navbar from "./components/navbar/Navbar";
+import Hero from "./components/hero/Hero";
+import Now from "./components/now/Now";
+import Experience from "./components/experience/Experience";
+import Skills from "./components/skills/Skills";
+import Projects from "./components/projects/Projects";
+import Contact from "./components/contact/Contact";
+import Footer from "./components/footer/Footer";
 
 const App: React.FC = () => {
   return (
     <TranslationProvider>
-      <AppProvider>
-        <Router>
-          <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 dark:from-slate-900 dark:via-purple-900 dark:to-slate-900">
-            <Suspense fallback={<LoadingSpinner />}>
-              <Navbar />
-              <main>
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      <>
-                        <Hero />
-                        <Skills />
-                        <Projects />
-                        <Contact />
-                      </>
-                    }
-                  />
-                  <Route path="/skills" element={<Skills />} />
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/contact" element={<Contact />} />
-                </Routes>
-              </main>
-              <Footer />
-            </Suspense>
+      <MotionConfig reducedMotion="user">
+        <div className="relative min-h-screen">
+          {/* Fondo decorativo */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[900px] overflow-hidden"
+          >
+            <div className="bg-grid absolute inset-0" />
+            <div className="absolute left-1/2 top-[-280px] h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-accent/[0.08] blur-[120px]" />
           </div>
-        </Router>
-      </AppProvider>
+
+          <Navbar />
+          <main>
+            <Hero />
+            <Now />
+            <Experience />
+            <Skills />
+            <Projects />
+            <Contact />
+          </main>
+          <Footer />
+        </div>
+      </MotionConfig>
     </TranslationProvider>
   );
 };

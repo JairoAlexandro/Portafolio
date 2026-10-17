@@ -7,6 +7,19 @@ export const CONTACT_INFO = {
   location: "Málaga, Spain",
 };
 
+export const CV_URL = "/Jairo_Curriculum.pdf?v=3";
+
+export const PROFILE_IMAGE =
+  "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto,w_640/v1/portafolio/gjcllj1ntlgli0vict6e";
+
+export const SECTIONS = [
+  "now",
+  "experience",
+  "skills",
+  "projects",
+  "contact",
+] as const;
+
 export const SOCIAL_LINKS = [
   {
     id: "github",

@@ -1,100 +1,130 @@
-import React, { useState } from "react";
-import { Menu, X } from "lucide-react";
-import { useAppContext } from "../../context/AppContext";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, X, Download } from "lucide-react";
 import { useTranslation } from "../../hooks/useTranslation";
+import { CV_URL, SECTIONS } from "../../constants";
 import LanguageSwitcher from "../LanguageSwitcher";
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const { setCurrentSection } = useAppContext();
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string>("");
 
-  const handleNavClick = (section: string) => {
-    setCurrentSection(section);
-    const element = document.getElementById(section);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Resalta la sección visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    SECTIONS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <nav
-      className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b-4 border-white transition-all duration-300"
-      style={{
-        borderImage:
-          "linear-gradient(to right, transparent, white, transparent) 1",
-      }}
-    >
-      <div className="container mx-auto flex justify-between items-center px-4 py-4">
-        <Link
-          to="/"
-          className="text-white text-2xl font-bold hover:text-blue-400 transition-colors"
-        >
-          J. Alexandro
-        </Link>
-
-        <div className="flex items-center space-x-4">
-          <LanguageSwitcher />
-
-          <button
-            className="text-white md:hidden p-2 rounded-lg hover:bg-slate-800 transition-colors"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-
-          <div className="hidden md:flex space-x-6">
-            <button
-              className="text-white hover:text-blue-400 transition-colors cursor-pointer font-medium"
-              onClick={() => handleNavClick("skills")}
-            >
-              {t("nav.skills")}
-            </button>
-            <button
-              className="text-white hover:text-blue-400 transition-colors cursor-pointer font-medium"
-              onClick={() => handleNavClick("projects")}
-            >
-              {t("nav.projects")}
-            </button>
-            <button
-              className="text-white hover:text-blue-400 transition-colors cursor-pointer font-medium"
-              onClick={() => handleNavClick("contact")}
-            >
-              {t("nav.contact")}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div
-        className={`md:hidden bg-slate-800/95 backdrop-blur-sm transition-all duration-300 overflow-hidden ${
-          menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+    <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4">
+      <nav
+        className={`flex w-full max-w-5xl items-center justify-between rounded-full border px-3 py-2 transition-all duration-300 ${
+          scrolled || menuOpen
+            ? "border-white/[0.08] bg-ink-950/75 shadow-2xl shadow-black/40 backdrop-blur-xl"
+            : "border-transparent bg-transparent"
         }`}
       >
-        <div className="flex flex-col items-center py-4 space-y-4">
-          <button
-            className="text-white hover:text-blue-400 transition-colors cursor-pointer font-medium"
-            onClick={() => handleNavClick("skills")}
+        <a
+          href="#top"
+          className="flex items-center gap-2 rounded-full px-2 py-1 font-semibold tracking-tight text-white"
+        >
+          <span className="grid h-7 w-7 place-items-center rounded-full bg-accent font-mono text-xs font-bold text-ink-950">
+            JA
+          </span>
+          <span className="hidden sm:inline">Jairo Alexandro</span>
+        </a>
+
+        <ul className="hidden items-center gap-1 md:flex">
+          {SECTIONS.map((id) => (
+            <li key={id}>
+              <a
+                href={`#${id}`}
+                className={`rounded-full px-3.5 py-2 text-sm transition-colors ${
+                  active === id
+                    ? "bg-white/[0.07] text-white"
+                    : "text-ink-300 hover:text-white"
+                }`}
+              >
+                {t(`nav.${id}`)}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex items-center gap-1">
+          <LanguageSwitcher />
+          <a
+            href={CV_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary hidden !px-4 !py-2 sm:inline-flex"
           >
-            {t("nav.skills")}
-          </button>
+            <Download size={15} />
+            CV
+          </a>
           <button
-            className="text-white hover:text-blue-400 transition-colors cursor-pointer font-medium"
-            onClick={() => handleNavClick("projects")}
+            className="grid h-9 w-9 place-items-center rounded-full text-white transition-colors hover:bg-white/5 md:hidden"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label={t("nav.menu")}
+            aria-expanded={menuOpen}
           >
-            {t("nav.projects")}
-          </button>
-          <button
-            className="text-white hover:text-blue-400 transition-colors cursor-pointer font-medium"
-            onClick={() => handleNavClick("contact")}
-          >
-            {t("nav.contact")}
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
+            className="card absolute inset-x-4 top-[4.75rem] !bg-ink-950/95 p-2 backdrop-blur-xl md:hidden"
+          >
+            {SECTIONS.map((id) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                onClick={() => setMenuOpen(false)}
+                className="block rounded-xl px-4 py-3 text-ink-200 transition-colors hover:bg-white/5 hover:text-white"
+              >
+                {t(`nav.${id}`)}
+              </a>
+            ))}
+            <a
+              href={CV_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary mt-2 w-full sm:hidden"
+            >
+              <Download size={15} />
+              {t("hero.download_cv")}
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 };
 

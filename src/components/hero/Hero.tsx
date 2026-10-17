@@ -1,162 +1,157 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import gsap from "gsap";
-import { Download } from "lucide-react";
+import { ArrowRight, Download, MapPin } from "lucide-react";
 import { useTranslation } from "../../hooks/useTranslation";
-import { SOCIAL_LINKS } from "../../constants";
+import { CV_URL, PROFILE_IMAGE, SOCIAL_LINKS } from "../../constants";
+import { CAREER_START, JOBS } from "../../data/experience";
+import { TECHNOLOGY_COUNT } from "../../data/skills";
+import projects from "../../data/projects";
+
+// Años desde el primer empleo, redondeado hacia abajo a medio año (p. ej. "1.5")
+const yearsOfExperience = () => {
+  const now = new Date();
+  const months =
+    (now.getFullYear() - CAREER_START.getFullYear()) * 12 +
+    (now.getMonth() - CAREER_START.getMonth());
+  return Math.max(0.5, Math.floor(months / 6) / 2);
+};
+
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as const },
+});
 
 const Hero: React.FC = () => {
-  const { t } = useTranslation();
-  const titleRef = useRef<HTMLHeadingElement>(null);
+  const { t, language } = useTranslation();
 
-  useEffect(() => {
-    if (titleRef.current) {
-      const letters = titleRef.current.innerText.split("");
-      titleRef.current.innerHTML = "";
-
-      letters.forEach((letter) => {
-        const span = document.createElement("span");
-        span.innerText = letter;
-        span.style.opacity = "0";
-        span.style.filter = "blur(5px)";
-        titleRef.current?.appendChild(span);
-      });
-
-      gsap.to(titleRef.current.children, {
-        opacity: 1,
-        filter: "blur(0px)",
-        y: -20,
-        duration: 0.4,
-        ease: "power3.out",
-        stagger: 0.1,
-      });
-    }
-  }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.2,
-      },
+  const stats = [
+    {
+      value: `${yearsOfExperience().toLocaleString(language)}+`,
+      label: t("hero.stats.experience"),
     },
-  };
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut" as const,
-      },
-    },
-  };
+    { value: JOBS.length, label: t("hero.stats.companies") },
+    { value: projects.length, label: t("hero.stats.projects") },
+    { value: `${TECHNOLOGY_COUNT}+`, label: t("hero.stats.technologies") },
+  ];
 
   return (
-    <motion.div
-      className="hero min-h-screen flex flex-col items-center justify-center px-4 py-20"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
+    <section
+      id="top"
+      className="mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-center px-4 pb-16 pt-32 sm:px-6"
     >
-      <motion.div className="relative mb-8" variants={itemVariants}>
-        <motion.img
-          src="https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1/portafolio/gjcllj1ntlgli0vict6e"
-          alt="Jairo Alexandro - Full Stack Developer"
-          className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full border-4 border-white shadow-2xl"
-          whileHover={{
-            scale: 1.05,
-            rotate: 5,
-            transition: { duration: 0.3 },
-          }}
-          whileTap={{ scale: 0.95 }}
-        />
-        <motion.div
-          className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [1, 0.8, 1],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </motion.div>
-
-      <motion.h1
-        ref={titleRef}
-        className="hero__title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-center text-white leading-tight"
-        variants={itemVariants}
-      >
-        {t("hero.greeting")}
-      </motion.h1>
-
-      <motion.p
-        className="hero__subtitle text-2xl sm:text-3xl md:text-4xl text-blue-400 mb-6 font-semibold"
-        variants={itemVariants}
-      >
-        {t("hero.title")}
-      </motion.p>
-
-      <motion.p
-        className="hero__description max-w-4xl text-center text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed mb-12 px-4"
-        variants={itemVariants}
-      >
-        {t("hero.description")}
-      </motion.p>
-
-      <motion.div
-        className="flex flex-col sm:flex-row gap-4 mb-12"
-        variants={itemVariants}
-      >
-        <motion.a
-          href="/Jairo_Curriculum.pdf?v=2"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Download size={20} />
-          {t("hero.download_cv")}
-        </motion.a>
-
-        <motion.a
-          href="#contact"
-          className="flex items-center gap-2 border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          {t("hero.cta")}
-        </motion.a>
-      </motion.div>
-
-      <motion.div className="flex gap-6" variants={itemVariants}>
-        {SOCIAL_LINKS.map((social, index) => (
+      <div className="grid items-center gap-12 md:grid-cols-[1fr_auto] md:gap-16">
+        <div>
           <motion.a
-            key={social.label}
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all duration-300 transform hover:scale-110 hover:rotate-12"
-            whileHover={{ y: -3 }}
-            whileTap={{ scale: 0.9 }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 + 1 }}
+            {...fadeUp(0)}
+            href="#now"
+            className="group inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] py-1.5 pl-3 pr-4 text-sm text-ink-200 transition-colors hover:border-accent/40"
           >
-            <social.icon size={24} />
-            <span className="sr-only">{social.label}</span>
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
+            {t("hero.status")}
+            <ArrowRight
+              size={14}
+              className="transition-transform group-hover:translate-x-0.5"
+            />
           </motion.a>
+
+          <motion.h1
+            {...fadeUp(0.1)}
+            className="mt-8 text-5xl font-semibold leading-[1.02] tracking-tighter sm:text-6xl lg:text-7xl"
+          >
+            <span className="block text-ink-400">{t("hero.greeting")}</span>
+            <span className="text-gradient block">{t("hero.name")}</span>
+          </motion.h1>
+
+          <motion.p
+            {...fadeUp(0.2)}
+            className="mt-4 font-mono text-sm uppercase tracking-[0.2em] text-accent"
+          >
+            {t("hero.title")}
+          </motion.p>
+
+          <motion.p
+            {...fadeUp(0.3)}
+            className="mt-6 max-w-xl text-lg leading-relaxed text-ink-300"
+          >
+            {t("hero.description")}
+          </motion.p>
+
+          <motion.div
+            {...fadeUp(0.4)}
+            className="mt-10 flex flex-wrap items-center gap-3"
+          >
+            <a href="#projects" className="btn-primary">
+              {t("hero.cta")}
+              <ArrowRight size={16} />
+            </a>
+            <a
+              href={CV_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+            >
+              <Download size={16} />
+              {t("hero.download_cv")}
+            </a>
+            <div className="ml-1 flex items-center gap-1">
+              {SOCIAL_LINKS.map((social) => (
+                <a
+                  key={social.id}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="grid h-10 w-10 place-items-center rounded-full text-ink-300 transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  <social.icon size={18} />
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mx-auto w-56 sm:w-64 md:w-72"
+        >
+          <div className="absolute -inset-6 rounded-[2.5rem] bg-accent/10 blur-3xl" />
+          <div className="relative rounded-[2rem] border border-white/10 bg-gradient-to-b from-white/10 to-transparent p-1.5">
+            <img
+              src={PROFILE_IMAGE}
+              alt="Jairo Alexandro"
+              width={288}
+              height={288}
+              className="aspect-square w-full rounded-[1.6rem] object-cover"
+            />
+          </div>
+          <div className="card absolute -bottom-4 -left-4 flex items-center gap-2 !rounded-full !bg-ink-900/90 px-3.5 py-2 text-sm text-ink-200">
+            <MapPin size={14} className="text-accent" />
+            {t("hero.location")}
+          </div>
+        </motion.div>
+      </div>
+
+      <motion.dl
+        {...fadeUp(0.5)}
+        className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.07] md:grid-cols-4"
+      >
+        {stats.map((stat) => (
+          <div key={stat.label} className="bg-ink-950 px-6 py-5">
+            <dt className="sr-only">{stat.label}</dt>
+            <dd className="text-3xl font-semibold tracking-tight text-white">
+              {stat.value}
+            </dd>
+            <dd className="mt-1 text-sm text-ink-400">{stat.label}</dd>
+          </div>
         ))}
-      </motion.div>
-    </motion.div>
+      </motion.dl>
+    </section>
   );
 };
 

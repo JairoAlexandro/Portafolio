@@ -1,33 +1,29 @@
-import { Project } from "../hooks/useProjects";
+export interface Project {
+  id: string;
+  title: string;
+  /** Clave de traducción de la descripción */
+  description: string;
+  image: string;
+  demo: string;
+  github: string;
+  technologies: string[];
+  featured?: boolean;
+}
 
-const projects: Omit<Project, "id">[] = [
+const projects: Project[] = [
   {
+    id: "picanCode",
     title: "PicanCode",
     description: "projects.list.picanCode.description",
     image:
-      "https://res.cloudinary.com/dieclsppc/image/upload/v1751441568/Captura_de_pantalla_2025-07-02_093015_hokxjy.png",
+      "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1751441568/Captura_de_pantalla_2025-07-02_093015_hokxjy.png",
     github: "https://github.com/JairoAlexandro/PicanCode",
     demo: "https://jairo.slope.es/login",
     technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.io"],
-    category: "fullstack",
     featured: true,
-    githubStars: 15,
-    demoVisits: 1200,
   },
   {
-    title: "Hotel Johnnie Walker",
-    description: "projects.list.hotelJohnnieWalker.description",
-    image:
-      "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1/portafolio/b7lgbxbecatwcn6bgkyz",
-    github: "https://github.com/RubenMRDev/hotelJohnnieWalker",
-    demo: "https://hoteljohnniewalker.vercel.app/",
-    technologies: ["React", "JavaScript", "CSS", "HTML", "Jest", "Vitest"],
-    category: "web",
-    featured: false,
-    githubStars: 8,
-    demoVisits: 450,
-  },
-  {
+    id: "chickenWildTournament",
     title: "Chicken Wild Tournament",
     description: "projects.list.chickenWildTournament.description",
     image:
@@ -35,10 +31,16 @@ const projects: Omit<Project, "id">[] = [
     github: "https://github.com/JairoAlexandro/Chicken-Wild-Tournament",
     demo: "https://cwt-five.vercel.app/",
     technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-    category: "web",
-    featured: true,
-    githubStars: 12,
-    demoVisits: 800,
+  },
+  {
+    id: "hotelJohnnieWalker",
+    title: "Hotel Johnnie Walker",
+    description: "projects.list.hotelJohnnieWalker.description",
+    image:
+      "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1/portafolio/b7lgbxbecatwcn6bgkyz",
+    github: "https://github.com/RubenMRDev/hotelJohnnieWalker",
+    demo: "https://hoteljohnniewalker.vercel.app/",
+    technologies: ["React", "JavaScript", "CSS", "Jest", "Vitest"],
   },
 ];
 

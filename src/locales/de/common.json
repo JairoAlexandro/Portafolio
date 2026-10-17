@@ -1,83 +1,156 @@
 {
   "nav": {
-    "home": "Startseite",
-    "about": "Über mich",
-    "skills": "Fähigkeiten",
+    "now": "Jetzt",
+    "experience": "Erfahrung",
+    "skills": "Stack",
     "projects": "Projekte",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "menu": "Menü öffnen",
+    "language": "Sprache ändern"
   },
   "hero": {
-    "greeting": "Hallo, ich bin J. Alexandro",
-    "name": "J. Alexandro",
-    "title": "Full Stack Entwickler",
-    "description": "Leidenschaftlicher Entwickler, der außergewöhnliche Web-Erlebnisse und innovative Lösungen schafft.",
-    "cta": "Meine Projekte ansehen",
-    "download_cv": "CV herunterladen"
-  },
-  "skills": {
-    "title": "Fähigkeiten & Expertise",
-    "subtitle": "Ich habe durch jahrelange Erfahrung und kontinuierliches Lernen ein vielfältiges Set von Fähigkeiten entwickelt. Hier ist, was ich an den Tisch bringe.",
-    "categories": {
-      "languages": "Programmiersprachen",
-      "frameworks": "Frameworks & Bibliotheken",
-      "database": "Datenbanken",
-      "tools": "Tools & Versionskontrolle",
-      "design": "Design & Multimedia"
-    },
+    "status": "Derzeit bei Renterus Software",
+    "greeting": "Hallo, ich bin",
+    "name": "Jairo Alexandro",
+    "title": "Full Stack Developer",
+    "description": "Ich entwickle schnelle, skalierbare Webanwendungen – vom Back-End bis zur Oberfläche. Durch meine Ausbildung in 3D-Animation lege ich besonderen Wert auf User Experience und visuelle Details.",
+    "cta": "Projekte ansehen",
+    "download_cv": "Lebenslauf herunterladen",
+    "location": "Málaga, Spanien",
     "stats": {
       "experience": "Jahre Erfahrung",
-      "projects": "Abgeschlossene Projekte",
-      "technologies": "Beherrschte Technologien",
-      "commits": "Code Commits"
+      "companies": "Unternehmen",
+      "projects": "ausgewählte Projekte",
+      "technologies": "Technologien"
+    }
+  },
+  "now": {
+    "label": "Jetzt",
+    "title": "Jeden Tag wachsen bei Renterus",
+    "p1": "Seit Juli 2025 arbeite ich als Full Stack Developer bei Renterus Software. Ein Umfeld, in dem ich mein Wissen täglich erweitere – im Front-End wie im Back-End – und echte Produktprobleme löse.",
+    "p2": "Über meine zugewiesenen Aufgaben hinaus engagiere ich mich dafür, Verbesserungspotenziale zu erkennen und Lösungen vorzuschlagen und umzusetzen, die das Produkt stabiler und die Arbeit des Teams effizienter machen.",
+    "since": "Seit Juli 2025",
+    "highlights": {
+      "chat": {
+        "title": "Interner Echtzeit-Chat",
+        "description": "Mitarbeit an einem internen Chatsystem auf Basis von WebSockets."
+      },
+      "payments": {
+        "title": "Sichere Zahlungen",
+        "description": "Integration sicherer Zahlungsmethoden über das Redsys-Gateway."
+      },
+      "data": {
+        "title": "Datenlogik",
+        "description": "Entwurf und Umsetzung von SQL-Datenbanklogik für neue Funktionen."
+      },
+      "improvements": {
+        "title": "Kontinuierliche Verbesserung",
+        "description": "Ich optimiere bestehende Funktionen und sorge für reibungslose Deployments."
+      }
+    }
+  },
+  "experience": {
+    "label": "Werdegang",
+    "title": "Erfahrung & Ausbildung",
+    "work": "Berufserfahrung",
+    "studies": "Ausbildung",
+    "present": "Heute",
+    "jobs": {
+      "renterus": {
+        "role": "Full Stack Developer",
+        "period": "Juli 2025 — Heute",
+        "bullets": [
+          "Entwicklung neuer Funktionen und Benutzeroberflächen in Webanwendungen.",
+          "Mitarbeit an einem internen Chatsystem mit WebSockets.",
+          "Integration sicherer Zahlungen mit Redsys.",
+          "Entwurf von SQL-Datenbanklogik (phpMyAdmin) für neue Features.",
+          "Optimierung bestehender Funktionen und reibungslose Deployments."
+        ]
+      },
+      "greenslope": {
+        "role": "Full Stack Developer",
+        "period": "März 2025 — Juni 2025",
+        "bullets": [
+          "RESTful-APIs mit Symfony und reinem PHP nach sauberer Architektur.",
+          "Wiederverwendbare React-Komponenten und Front-End-Optimierung für schnellere Ladezeiten.",
+          "Echtzeit-Dashboard mit Grafana (aktive Nutzer, Fehlerraten, Prognosen) zur schnelleren Erkennung von Störungen.",
+          "Zusammenarbeit mit Design und Back-End unter Anwendung von Best Practices in CSS, JavaScript und TypeScript."
+        ]
+      }
+    },
+    "education": {
+      "daw": {
+        "title": "Höhere Berufsausbildung in Webanwendungsentwicklung (DAW)",
+        "school": "CEI Schule für Design und Marketing, Sevilla",
+        "period": "2023 — 2025",
+        "description": "Modernes Front- und Back-End (React, Angular, Symfony, Laravel, Node.js), Responsive Design und Barrierefreiheit."
+      },
+      "animation": {
+        "title": "Höhere Berufsausbildung in 3D-Animation, Spielen und interaktiven Umgebungen",
+        "school": "IES Ángel de Saavedra, Córdoba",
+        "period": "2020 — 2022",
+        "description": "Animationsprinzipien für UI/UX: Timing, Easing und Motion Design für Mikrointeraktionen."
+      }
+    }
+  },
+  "skills": {
+    "label": "Stack",
+    "title": "Technologien, mit denen ich arbeite",
+    "subtitle": "Die Werkzeuge meines Alltags – von der Datenbank bis zum Design.",
+    "categories": {
+      "languages": "Sprachen",
+      "frameworks": "Frameworks & Bibliotheken",
+      "database": "Datenbanken",
+      "tools": "Tools & DevOps",
+      "design": "Design & Multimedia",
+      "methods": "Methodik & Sprachen"
+    },
+    "items": {
+      "spanish": "Spanisch (Muttersprache)",
+      "english": "Englisch"
     }
   },
   "projects": {
-    "title": "Meine Projekte",
-    "subtitle": "Hier sind einige der Projekte, an denen ich gearbeitet habe. Jedes stellt eine einzigartige Herausforderung und Lernerfahrung in meiner Reise als Entwickler dar.",
-    "featured": "Hervorgehoben",
-    "live_demo": "Live Demo",
-    "view_code": "Code ansehen",
-    "read_more": "Mehr lesen",
-    "show_less": "Weniger zeigen",
-    "no_projects": "Derzeit sind keine Projekte verfügbar.",
+    "label": "Projekte",
+    "title": "Ausgewählte Arbeiten",
+    "subtitle": "Persönliche und akademische Projekte, in denen ich Gelerntes in die Praxis umgesetzt habe.",
+    "featured": "Highlight",
+    "live_demo": "Demo",
+    "view_code": "Code",
     "list": {
       "picanCode": {
-        "title": "PicanCode",
-        "description": "PicanCode ist ein soziales Netzwerk für Entwickler, wo Sie syntaxhervorgehobene Code-Snippets teilen und erklärende Bilder anhängen können. Kollaborativ können Sie anderen Benutzern folgen, ihre Beiträge kommentieren und Ihre Lieblings-Snippets \"liken\". Es enthält auch ein Admin-Panel zur Moderation von Inhalten und zur Sicherung und Organisation der Community."
+        "description": "Ein soziales Netzwerk für Entwickler zum Teilen von Code-Snippets mit Syntax-Highlighting und erklärenden Bildern. Nutzer können sich folgen, kommentieren und liken; ein Admin-Panel sorgt für moderierte Inhalte."
       },
       "hotelJohnnieWalker": {
-        "title": "Hotel Johnnie Walker",
-        "description": "Die Hotel Johnnie Walker Anwendung ermöglicht die Verwaltung von Hotelbuchungen, einschließlich Kundensuche, Buchungsvisualisierung und Aufenthaltsberechnung. Sie verwaltet auch Restaurantreservierungen, integriert sich mit einer externen API für Daten und führt Formularvalidierung durch. Best Practices werden mit React.js implementiert, mit Hooks wie useState und useEffect, und Komponenten werden mit Jest und Vitest getestet."
+        "description": "Verwaltung von Hotel- und Restaurantbuchungen: Kundensuche, Aufenthaltsberechnung, Anbindung einer externen API und Formularvalidierung. Entwickelt mit React und Hooks, getestet mit Jest und Vitest."
       },
       "chickenWildTournament": {
-        "title": "Chicken Wild Turnier",
-        "description": "Interaktive Web-Anwendung optimiert für Mobilgeräte, Tablets und Desktop. Spieler treten in 1vs1-Matches an, bei denen jeder ein Ei erhält, und der Gewinner wird durch den Rang des Eies bestimmt."
+        "description": "Ein interaktives, responsives Webspiel, in dem zwei Spieler 1-gegen-1 antreten: Jeder erhält ein Ei, und wer das ranghöchste bekommt, gewinnt."
       }
     }
   },
   "contact": {
-    "title": "Kontakt aufnehmen",
-    "subtitle": "Ich bin immer interessiert daran, von neuen Möglichkeiten und aufregenden Projekten zu hören. Zögern Sie nicht, mich zu kontaktieren, wenn Sie zusammenarbeiten möchten oder einfach nur Hallo sagen wollen!",
-    "contact_info_title": "Kontaktinformationen",
-    "follow_me": "Folgen Sie mir",
+    "label": "Kontakt",
+    "title": "Lass uns reden",
+    "subtitle": "Ich bin offen für neue Möglichkeiten und Projekte. Schreib mir, und ich melde mich so schnell wie möglich.",
     "form": {
-      "name": "Ihr Name",
-      "email": "Ihre E-Mail",
-      "message": "Ihre Nachricht",
-      "name_placeholder": "Geben Sie Ihren Namen ein",
-      "email_placeholder": "Geben Sie Ihre E-Mail ein",
-      "message_placeholder": "Erzählen Sie mir von Ihrem Projekt oder sagen Sie einfach Hallo!",
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Nachricht",
+      "name_placeholder": "Dein Name",
+      "email_placeholder": "du@email.com",
+      "message_placeholder": "Erzähl mir von deinem Projekt oder sag einfach Hallo",
       "send": "Nachricht senden",
       "sending": "Wird gesendet...",
-      "success": "Nachricht erfolgreich gesendet! Ich werde Ihnen bald antworten.",
-      "error": "Fehler beim Senden der Nachricht. Bitte versuchen Sie es später erneut.",
+      "success": "Nachricht gesendet! Ich melde mich bald.",
+      "error": "Die Nachricht konnte nicht gesendet werden. Bitte versuche es später erneut oder schreib mir per E-Mail.",
       "validation": {
         "name_required": "Name ist erforderlich",
-        "name_min_length": "Name muss mindestens 2 Zeichen haben",
+        "name_min_length": "Der Name muss mindestens 2 Zeichen lang sein",
         "email_required": "E-Mail ist erforderlich",
-        "email_invalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+        "email_invalid": "Bitte gib eine gültige E-Mail ein",
         "message_required": "Nachricht ist erforderlich",
-        "message_min_length": "Nachricht muss mindestens 10 Zeichen haben"
+        "message_min_length": "Die Nachricht muss mindestens 10 Zeichen lang sein"
       }
     },
     "info": {
@@ -88,7 +161,7 @@
   },
   "footer": {
     "rights": "Alle Rechte vorbehalten.",
-    "built_with": "Erstellt mit",
-    "by": "von"
+    "built_with": "Erstellt mit React, TypeScript und Tailwind CSS",
+    "back_to_top": "Nach oben"
   }
 }

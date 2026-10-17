@@ -1,82 +1,155 @@
 {
   "nav": {
-    "home": "Accueil",
-    "about": "À propos",
-    "skills": "Compétences",
+    "now": "Maintenant",
+    "experience": "Expérience",
+    "skills": "Stack",
     "projects": "Projets",
-    "contact": "Contact"
+    "contact": "Contact",
+    "menu": "Ouvrir le menu",
+    "language": "Changer de langue"
   },
   "hero": {
-    "greeting": "Salut, je suis J. Alexandro",
-    "name": "J. Alexandro",
+    "status": "Actuellement chez Renterus Software",
+    "greeting": "Bonjour, je suis",
+    "name": "Jairo Alexandro",
     "title": "Développeur Full Stack",
-    "description": "Développeur passionné créant des expériences web exceptionnelles et des solutions innovantes.",
-    "cta": "Voir mes projets",
-    "download_cv": "Télécharger CV"
+    "description": "Je crée des applications web rapides et évolutives, du back-end à l'interface. Ma formation en animation 3D me rend particulièrement attentif à l'expérience utilisateur et au détail visuel.",
+    "cta": "Voir les projets",
+    "download_cv": "Télécharger le CV",
+    "location": "Malaga, Espagne",
+    "stats": {
+      "experience": "ans d'expérience",
+      "companies": "entreprises",
+      "projects": "projets phares",
+      "technologies": "technologies"
+    }
+  },
+  "now": {
+    "label": "Maintenant",
+    "title": "Progresser chaque jour chez Renterus",
+    "p1": "Depuis juillet 2025, je travaille comme Développeur Full Stack chez Renterus Software. C'est un environnement où j'élargis mes connaissances chaque jour, en front-end comme en back-end, face à de vrais problèmes produit.",
+    "p2": "Au-delà des tâches qui me sont confiées, je m'implique pour repérer les axes d'amélioration, puis proposer et mettre en place des solutions qui rendent le produit plus solide et le travail de l'équipe plus efficace.",
+    "since": "Depuis juil. 2025",
+    "highlights": {
+      "chat": {
+        "title": "Chat interne en temps réel",
+        "description": "Je participe au développement d'un système de chat interne basé sur les WebSockets."
+      },
+      "payments": {
+        "title": "Paiements sécurisés",
+        "description": "Intégration de moyens de paiement sécurisés avec la passerelle Redsys."
+      },
+      "data": {
+        "title": "Logique de données",
+        "description": "Conception et mise en œuvre de logique de base de données en SQL pour de nouvelles fonctionnalités."
+      },
+      "improvements": {
+        "title": "Amélioration continue",
+        "description": "J'optimise les fonctionnalités existantes et contribue à des déploiements fluides."
+      }
+    }
+  },
+  "experience": {
+    "label": "Parcours",
+    "title": "Expérience et formation",
+    "work": "Expérience professionnelle",
+    "studies": "Formation",
+    "present": "Aujourd'hui",
+    "jobs": {
+      "renterus": {
+        "role": "Développeur Full Stack",
+        "period": "Juil. 2025 — Aujourd'hui",
+        "bullets": [
+          "Développement de nouvelles fonctionnalités et interfaces dans des applications web.",
+          "Participation à un système de chat interne avec WebSockets.",
+          "Intégration de paiements sécurisés avec Redsys.",
+          "Conception de logique de base de données SQL (phpMyAdmin) pour de nouvelles fonctionnalités.",
+          "Optimisation des fonctionnalités existantes et déploiements sans friction."
+        ]
+      },
+      "greenslope": {
+        "role": "Développeur Full Stack",
+        "period": "Mars 2025 — Juin 2025",
+        "bullets": [
+          "API RESTful avec Symfony et PHP natif, selon une architecture propre.",
+          "Composants React réutilisables et optimisation du front-end pour améliorer le chargement.",
+          "Tableau de bord Grafana en temps réel (utilisateurs actifs, erreurs, prévisions) pour détecter plus vite les incidents.",
+          "Collaboration avec le design et le back-end en appliquant les bonnes pratiques CSS, JavaScript et TypeScript."
+        ]
+      }
+    },
+    "education": {
+      "daw": {
+        "title": "BTS Développement d'Applications Web (DAW)",
+        "school": "CEI École de Design et Marketing, Séville",
+        "period": "2023 — 2025",
+        "description": "Front-end et back-end modernes (React, Angular, Symfony, Laravel, Node.js), design responsive et accessibilité."
+      },
+      "animation": {
+        "title": "BTS Animation 3D, Jeux et Environnements Interactifs",
+        "school": "IES Ángel de Saavedra, Cordoue",
+        "period": "2020 — 2022",
+        "description": "Principes d'animation appliqués à l'UI/UX : timing, easing et motion design pour les micro-interactions."
+      }
+    }
   },
   "skills": {
-    "title": "Compétences & Expertise",
-    "subtitle": "J'ai développé un ensemble diversifié de compétences grâce à des années d'expérience et d'apprentissage continu. Voici ce que j'apporte à la table.",
+    "label": "Stack",
+    "title": "Les technologies que j'utilise",
+    "subtitle": "Les outils de mon quotidien, de la base de données au design.",
     "categories": {
-      "languages": "Langages de Programmation",
-      "frameworks": "Frameworks & Bibliothèques",
-      "database": "Bases de Données",
-      "tools": "Outils & Contrôle de Version",
-      "design": "Design & Multimédia"
+      "languages": "Langages",
+      "frameworks": "Frameworks et bibliothèques",
+      "database": "Bases de données",
+      "tools": "Outils et DevOps",
+      "design": "Design et multimédia",
+      "methods": "Méthodologie et langues"
     },
-    "stats": {
-      "experience": "Années d'Expérience",
-      "projects": "Projets Complétés",
-      "technologies": "Technologies Maîtrisées",
-      "commits": "Commits de Code"
+    "items": {
+      "spanish": "Espagnol (natif)",
+      "english": "Anglais"
     }
   },
   "projects": {
-    "title": "Mes Projets",
-    "subtitle": "Voici quelques-uns des projets sur lesquels j'ai travaillé. Chacun représente un défi unique et une expérience d'apprentissage dans mon parcours de développeur.",
-    "featured": "En Vedette",
-    "live_demo": "Démo en Direct",
-    "view_code": "Voir le Code",
-    "read_more": "Lire plus",
-    "show_less": "Montrer moins",
-    "no_projects": "Aucun projet disponible pour le moment.",
+    "label": "Projets",
+    "title": "Travaux sélectionnés",
+    "subtitle": "Projets personnels et académiques où j'ai mis en pratique ce que j'apprends.",
+    "featured": "À la une",
+    "live_demo": "Démo",
+    "view_code": "Code",
     "list": {
       "picanCode": {
-        "title": "PicanCode",
-        "description": "PicanCode est un réseau social pour développeurs où vous pouvez partager des extraits de code avec coloration syntaxique et joindre des images explicatives. Collaborativement, vous pouvez suivre d'autres utilisateurs, commenter leurs contributions et \"aimer\" vos extraits favoris. Il inclut également un panneau d'administration pour modérer le contenu et maintenir la communauté sûre et bien organisée."
+        "description": "Réseau social pour développeurs permettant de partager des extraits de code avec coloration syntaxique et images explicatives. On peut suivre d'autres utilisateurs, commenter et aimer, et un panneau d'administration permet de modérer le contenu."
       },
       "hotelJohnnieWalker": {
-        "title": "Hôtel Johnnie Walker",
-        "description": "L'application Hôtel Johnnie Walker permet de gérer les réservations d'hôtel, incluant la recherche de clients, la visualisation des réservations et le calcul des séjours. Elle gère également les réservations de restaurant, s'intègre avec une API externe pour les données et effectue la validation de formulaires. Les meilleures pratiques sont implémentées en utilisant React.js, avec des hooks comme useState et useEffect, et les composants sont testés avec Jest et Vitest."
+        "description": "Gestion des réservations d'hôtel et de restaurant : recherche de clients, calcul des séjours, intégration d'une API externe et validation de formulaires. Développée avec React et les hooks, testée avec Jest et Vitest."
       },
       "chickenWildTournament": {
-        "title": "Tournoi Chicken Wild",
-        "description": "Application web interactive optimisée pour mobile, tablette et bureau. Les joueurs s'affrontent dans des matchs 1vs1 où chacun reçoit un œuf, et le gagnant est déterminé par le rang de l'œuf."
+        "description": "Jeu web interactif et responsive où deux joueurs s'affrontent en 1v1 : chacun reçoit un œuf et celui qui obtient le rang le plus élevé gagne."
       }
     }
   },
   "contact": {
-    "title": "Entrer en Contact",
-    "subtitle": "Je suis toujours intéressé d'entendre parler de nouvelles opportunités et de projets passionnants. N'hésitez pas à me contacter si vous souhaitez collaborer ou simplement dire bonjour !",
-    "contact_info_title": "Informations de Contact",
-    "follow_me": "Suivez-moi",
+    "label": "Contact",
+    "title": "Discutons",
+    "subtitle": "Je suis ouvert à de nouvelles opportunités et projets. Écrivez-moi et je vous répondrai dès que possible.",
     "form": {
-      "name": "Votre Nom",
-      "email": "Votre Email",
-      "message": "Votre Message",
-      "name_placeholder": "Entrez votre nom",
-      "email_placeholder": "Entrez votre email",
-      "message_placeholder": "Parlez-moi de votre projet ou dites simplement bonjour !",
-      "send": "Envoyer le Message",
-      "sending": "Envoi en cours...",
-      "success": "Message envoyé avec succès ! Je vous répondrai bientôt.",
-      "error": "Échec de l'envoi du message. Veuillez réessayer plus tard.",
+      "name": "Nom",
+      "email": "Email",
+      "message": "Message",
+      "name_placeholder": "Votre nom",
+      "email_placeholder": "vous@email.com",
+      "message_placeholder": "Parlez-moi de votre projet ou dites simplement bonjour",
+      "send": "Envoyer le message",
+      "sending": "Envoi...",
+      "success": "Message envoyé ! Je vous répondrai bientôt.",
+      "error": "Impossible d'envoyer le message. Réessayez plus tard ou écrivez-moi par email.",
       "validation": {
-        "name_required": "Le nom est requis",
+        "name_required": "Le nom est obligatoire",
         "name_min_length": "Le nom doit contenir au moins 2 caractères",
-        "email_required": "L'email est requis",
-        "email_invalid": "Veuillez entrer une adresse email valide",
-        "message_required": "Le message est requis",
+        "email_required": "L'email est obligatoire",
+        "email_invalid": "Veuillez saisir un email valide",
+        "message_required": "Le message est obligatoire",
         "message_min_length": "Le message doit contenir au moins 10 caractères"
       }
     },
@@ -88,7 +161,7 @@
   },
   "footer": {
     "rights": "Tous droits réservés.",
-    "built_with": "Construit avec",
-    "by": "par"
+    "built_with": "Réalisé avec React, TypeScript et Tailwind CSS",
+    "back_to_top": "Retour en haut"
   }
 }
