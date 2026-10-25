@@ -119,8 +119,8 @@
     "live_demo": "Demo",
     "view_code": "Code",
     "list": {
-      "picanCode": {
-        "description": "A social network for developers to share code snippets with syntax highlighting and explanatory images. Users can follow each other, comment and like, and an admin panel keeps the content moderated."
+      "docFill": {
+        "description": "Upload a contract or any document and DocFill detects the data that repeats (names, ID numbers, amounts, dates, blanks). You type each value once and it's replaced throughout the document, including tables and amounts written in words. Works with Word, PDF (with OCR for scans), Excel and more, with no AI and no server: everything is processed locally. Available as an installable web app (PWA) and an Electron desktop app."
       },
       "hotelJohnnieWalker": {
         "description": "Hotel and restaurant booking management: customer search, stay calculation, external API integration and form validation. Built with React and hooks, and tested with Jest and Vitest."

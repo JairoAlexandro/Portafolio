@@ -3,7 +3,10 @@ export interface Project {
   title: string;
   /** Clave de traducción de la descripción */
   description: string;
-  image: string;
+  /** Captura del proyecto (se muestra a pantalla completa) */
+  image?: string;
+  /** Icono de la app: se muestra centrado sobre un fondo con el color de marca */
+  logo?: { src: string; color: string };
   demo: string;
   github: string;
   technologies: string[];
@@ -12,14 +15,23 @@ export interface Project {
 
 const projects: Project[] = [
   {
-    id: "picanCode",
-    title: "PicanCode",
-    description: "projects.list.picanCode.description",
-    image:
-      "https://res.cloudinary.com/dieclsppc/image/upload/f_auto,q_auto/v1751441568/Captura_de_pantalla_2025-07-02_093015_hokxjy.png",
-    github: "https://github.com/JairoAlexandro/PicanCode",
-    demo: "https://jairo.slope.es/login",
-    technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.io"],
+    id: "docFill",
+    title: "DocFill",
+    description: "projects.list.docFill.description",
+    logo: {
+      src: "https://docfill-app.vercel.app/icons/icon-512.png",
+      color: "#2f5bea",
+    },
+    github: "https://github.com/JairoAlexandro/DocFill",
+    demo: "https://docfill-app.vercel.app/",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Electron",
+      "Tesseract.js",
+      "pdf-lib",
+      "PWA",
+    ],
     featured: true,
   },
   {

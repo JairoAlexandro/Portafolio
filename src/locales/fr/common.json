@@ -119,8 +119,8 @@
     "live_demo": "Démo",
     "view_code": "Code",
     "list": {
-      "picanCode": {
-        "description": "Réseau social pour développeurs permettant de partager des extraits de code avec coloration syntaxique et images explicatives. On peut suivre d'autres utilisateurs, commenter et aimer, et un panneau d'administration permet de modérer le contenu."
+      "docFill": {
+        "description": "Importez un contrat ou n'importe quel document et DocFill détecte les données qui se répètent (noms, pièces d'identité, montants, dates, champs vides). Vous saisissez chaque donnée une seule fois et elle est remplacée dans tout le document, y compris les tableaux et les montants en lettres. Compatible Word, PDF (avec OCR pour les scans), Excel et plus, sans IA ni serveur : tout est traité en local. Disponible en web installable (PWA) et en application de bureau avec Electron."
       },
       "hotelJohnnieWalker": {
         "description": "Gestion des réservations d'hôtel et de restaurant : recherche de clients, calcul des séjours, intégration d'une API externe et validation de formulaires. Développée avec React et les hooks, testée avec Jest et Vitest."
